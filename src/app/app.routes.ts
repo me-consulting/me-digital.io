@@ -22,6 +22,17 @@ export const routes: Routes = [
     title: 'Kontakt — ME Digital',
   },
   {
+    path: 'impressum',
+    loadComponent: () => import('./pages/impressum/impressum').then((m) => m.Impressum),
+    title: 'Impressum — ME Digital',
+  },
+  {
+    path: 'datenschutz',
+    loadComponent: () =>
+      import('./pages/datenschutz/datenschutz').then((m) => m.Datenschutz),
+    title: 'Datenschutzerklärung — ME Digital',
+  },
+  {
     path: '**',
     loadComponent: () => import('./pages/home/home').then((m) => m.Home),
   },

@@ -47,23 +47,4 @@
     </aside>
   </div>
 
-  <section class="section section--alt">
-    <div class="container">
-      <div class="section-head">
-        <span class="eyebrow">Unser Weg</span>
-        <h2 class="section-title">So sind wir gewachsen</h2>
-      </div>
-      <ol class="timeline">
-        @for (m of milestones; track m.year) {
-          <li class="timeline__item">
-            <span class="timeline__year">{{ m.year }}</span>
-            <div>
-              <h3>{{ m.title }}</h3>
-              <p>{{ m.text }}</p>
-            </div>
-          </li>
-        }
-      </ol>
-    </div>
-  </section>
 </section>

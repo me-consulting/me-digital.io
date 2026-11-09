@@ -15,6 +15,7 @@
  *   process      So arbeiten wir (Home)
  *   testimonials Referenzen (leer lassen -> Abschnitt wird ausgeblendet)
  *   faqs         Häufige Fragen
+ *   legal        Impressum + Datenschutzerklärung
  */
 
 export interface Service {
@@ -50,6 +51,11 @@ export interface Faq {
   a: string;
 }
 
+export interface LegalBlock {
+  heading: string;
+  text: string;
+}
+
 export const site = {
   // ── Identität + Kontakt (zuerst diese bearbeiten) ───────────────────────────
   name: 'ME Digital',
@@ -60,7 +66,7 @@ export const site = {
   // Kontakt — bitte echte Angaben eintragen.
   email: 'kontakt@me-digital.io',
   phone: '+49 178 88 55 55 4',
-  location: '[Stadt, Land]',
+  location: 'Stuttgart, Deutschland',
   // Auf null setzen, um ein Feld zu verbergen.
   socials: {
     linkedin: null as string | null,
@@ -100,7 +106,7 @@ export const site = {
     {
       icon: '⚙️',
       title: 'Industrielle Erfahrung',
-      text: 'Erfahrung in der Automobilindustrie — von führenden OEMs bis zu deren Zulieferern. Wir kennen komplexe, regulierte Umgebungen.',
+      text: 'Erfahrung in der Automobilindustrie — von führenden Herstellern über deren Zulieferer bis zu Produktteams. Wir kennen komplexe, regulierte Umgebungen.',
     },
     {
       icon: '⚡',
@@ -140,14 +146,13 @@ export const site = {
   testimonials: [] as Testimonial[],
 
   // ── Häufige Fragen ──────────────────────────────────────────────────────────
-  // HINWEIS: Die im FAQ genannten OEM-Namen (Mercedes, Smart, Porsche) öffentlich
-  // zu veröffentlichen, ist rechtlich heikel (Markenrechte / Anschein der
-  // Zusammenarbeit). Namen erst setzen, wenn eine schriftliche Kundenfreigabe
-  // vorliegt. Bis dahin bleibt die Formulierung auf der sicheren Seite.
+  // Branche wird bewusst abstrakt genannt (keine Firmennamen) — rechtlich
+  // unproblematisch. Konkrete Namen erst setzen, wenn eine schriftliche
+  // Kundenfreigabe vorliegt.
   faqs: [
     {
       q: 'Mit welchen Unternehmen arbeiten Sie?',
-      a: 'Erfahrung in der Automobilindustrie — von führenden OEMs (u. a. Mercedes, Smart und Porsche) über deren Zulieferer bis zu Produktteams und wachsenden Unternehmen. [OEM-Namen erst nach Kundenfreigabe öffentlich nennen.]',
+      a: 'Erfahrung in der Automobilindustrie — von führenden Herstellern über deren Zulieferer bis zu Produktteams und wachsenden Unternehmen.',
     },
     {
       q: 'Wie läuft ein Projekt an?',
@@ -165,6 +170,54 @@ export const site = {
         'Frontend (Angular, Vite), Backends und APIs, Cloud (AWS) sowie KI zur Prozessoptimierung — mit Claude oder lokalen Modellen, je nach Anforderung.',
     },
   ] as Faq[],
+
+  // ── Rechtliches: Impressum + Datenschutzerklärung ───────────────────────────
+  // Pflichtangaben nach § 5 TMG (Impressum) bzw. § 14 TMG / DSGVO (Datenschutz).
+  // NICHTS in diesem Block ist Rechtsberatung — vor Veröffentlichung prüfen lassen.
+  // Platzhalter [ … ] bitte ersetzen.
+  legal: {
+    impressum: {
+      name: 'Mario Ernst',
+      street: 'Madenstr. 29',
+      zip: '70619',
+      city: 'Stuttgart',
+      country: 'Deutschland',
+      email: 'kontakt@me-digital.io',
+      phone: '+49 178 88 55 55 4',
+      // USt-IdNr. NUR, wenn umsatzsteuerpflichtig (§ 27a UStG).
+      // Kleinunternehmer (§ 19 UStG) weisen keine USt-IdNr. aus -> null.
+      vatId: null as string | null,
+      // NUR für juristische Personen (GmbH, KG …). Einzelunternehmer -> null.
+      register: null as string | null,
+    },
+    // Datenschutzerklärung (DSGVO-§ 13/14). Text ist ein Muster mit Platzhaltern.
+    datenschutz: [
+      {
+        heading: 'Verantwortlicher',
+        text: 'Verantwortlich für die Datenverarbeitung auf dieser Website ist Mario Ernst, Madenstr. 29, 70619 Stuttgart (Kontakt: [email / Telefon]).',
+      },
+      {
+        heading: 'Erhebung und Verarbeitung',
+        text: 'Beim Aufruf der Website erfasst der Webserver automatisch Informationen (Server-Logfiles): IP-Adresse, Datum/Uhrzeit des Zugriffs, aufgerufene Seite, verwendeter Browser und Betriebssystem,.referrering-URL. Rechtsgrundlage ist § 14 Abs. 1 TMG bzw. Art. 6 Abs. 1 lit. f DSGVO (Bereitstellung der Website, Sicherheit und Stabilität).',
+      },
+      {
+        heading: 'Kontaktformular',
+        text: 'Über das Kontaktformular übermittelte Daten (Name, E-Mail, Nachricht) werden ausschließlich zur Bearbeitung Ihrer Anfrage verwendet. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO (Anbahnung eines Vertrags) bzw. lit. f (unser berechtigtes Interesse). Die Daten werden gelöscht, sobald die Anfrage bearbeitet ist bzw. kein behördliches Aufbewahrungspflicht mehr besteht.',
+      },
+      {
+        heading: 'Cookies & Tracking',
+        text: 'Diese Website verwendet keine Cookies und keine Tracking- oder Analyse-Tools (z. B. Google Analytics). Ein Cookie-Banner ist daher nicht erforderlich. [Wenn später Analyse-Tools ergänzt werden, hier anpassen und einen Banner/Consent ergänzen.]',
+      },
+      {
+        heading: 'Ihre Rechte',
+        text: 'Sie haben das Recht auf Auskunft (Art. 15), Berichtigung (Art. 16), Löschung (Art. 17), Einschränkung (Art. 18), Datenübertragbarkeit (Art. 20) und Widerspruch (Art. 21). Wenden Sie sich dazu an den Verantwortlichen.',
+      },
+      {
+        heading: 'Beschwerderecht',
+        text: 'Sie haben das Recht, sich bei einer Aufsichtsbehörde für den Datenschutz zu beschweren — z. B. beim Datenschutzbeauftragten des Landes, in dem Sie Ihren Wohnsitz oder Ihren gewöhnliche Aufenthaltsort haben.',
+      },
+    ] as LegalBlock[],
+  },
 };
 
 // ── Leistungen (treiben die /services-Seite und die Home-Übersicht) ────────────
