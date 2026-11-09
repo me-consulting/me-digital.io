@@ -169,7 +169,7 @@ export const site = {
     {
       q: 'Bieten Sie laufende Betreuung an?',
       a:
-        'Ja. Projekte können einmalig sein, oder wir übernehmen auf Wunsch Monitoring, Updates und Support. [An Ihr Angebot anpassen.]',
+        'Ja. Projekte können einmalig sein, oder wir übernehmen auf Wunsch Monitoring, Updates und Support.',
     },
     {
       q: 'Mit welchen Technologien arbeiten Sie?',
@@ -213,7 +213,8 @@ export const site = {
       },
       {
         heading: 'Cookies & Tracking',
-        text: 'Diese Website verwendet keine Cookies und keine Tracking- oder Analyse-Tools (z. B. Google Analytics). Ein Cookie-Banner ist daher nicht erforderlich. [Wenn später Analyse-Tools ergänzt werden, hier anpassen und einen Banner/Consent ergänzen.]',
+        text:
+          'Diese Website verwendet keine Cookies und keine Tracking- oder Analyse-Tools (z. B. Google Analytics). Ein Cookie-Banner ist daher nicht erforderlich.',
       },
       {
         heading: 'Ihre Rechte',
