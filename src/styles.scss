@@ -1,3 +1,12 @@
+/* Self-hosted Inter variable font — no third-party / Google Fonts request. */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('/fonts/Inter-wght-normal.woff2') format('woff2');
+}
+
 /* ============================================================
    Global design system — modern, responsive, token-driven.
    Edit colours/fonts here; components use var(--…) everywhere.
