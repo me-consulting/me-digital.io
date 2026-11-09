@@ -61,8 +61,7 @@ import { site } from '../../content';
         }
 
         <p class="legal__note">
-          Angaben gemäß § 12 TDG (früher § 5 TMG). Diese Angaben sind ein Muster
-          und ersetzen keine Rechtsberatung — vor Veröffentlichung prüfen lassen.
+          Angaben gemäß § 12 TDG (früher § 5 TMG).
         </p>
       </div>
     </section>
