@@ -185,9 +185,8 @@ export const site = {
       country: 'Deutschland',
       email: 'kontakt@me-digital.io',
       phone: '+49 178 88 55 55 4',
-      // USt-IdNr. NUR, wenn umsatzsteuerpflichtig (§ 27a UStG).
-      // Kleinunternehmer (§ 19 UStG) weisen keine USt-IdNr. aus -> null.
-      vatId: null as string | null,
+      // USt-IdNr. (umsatzsteuerpflichtig, § 27a UStG).
+      vatId: 'DE304454733',
       // NUR für juristische Personen (GmbH, KG …). Einzelunternehmer -> null.
       register: null as string | null,
     },
@@ -195,7 +194,7 @@ export const site = {
     datenschutz: [
       {
         heading: 'Verantwortlicher',
-        text: 'Verantwortlich für die Datenverarbeitung auf dieser Website ist Mario Ernst, Madenstr. 29, 70619 Stuttgart (Kontakt: [email / Telefon]).',
+        text: 'Verantwortlich für die Datenverarbeitung auf dieser Website ist Mario Ernst, Madenstr. 29, 70619 Stuttgart (Kontakt: kontakt@me-digital.io / +49 178 88 55 55 4).',
       },
       {
         heading: 'Erhebung und Verarbeitung',
