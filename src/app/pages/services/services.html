@@ -1,0 +1,47 @@
+<section class="page">
+  <div class="container page__head">
+    <span class="eyebrow">Leistungen</span>
+    <h1>Leistungen, passgenau für Sie</h1>
+    <p class="section-lead">
+      Einzelprojekt oder laufende Betreuung — jede Zusammenarbeit beginnt mit einem klaren
+      Plan und festen Preisen. Keine Überraschungen.
+    </p>
+  </div>
+
+  <div class="container">
+    <div class="service-list">
+      @for (s of services; track s.id) {
+        <article class="service" id="{{ s.id }}">
+          <div class="service__head">
+            <span class="service__icon">{{ s.icon }}</span>
+            <div>
+              <h2>
+                {{ s.title }}
+                @if (s.focus) {
+                  <span class="badge badge--focus">Fokus</span>
+                }
+              </h2>
+              <p class="service__tagline">{{ s.tagline }}</p>
+            </div>
+          </div>
+          <p class="service__desc">{{ s.description }}</p>
+          <ul class="bul service__bullets">
+            @for (b of s.bullets; track b) {
+              <li>{{ b }}</li>
+            }
+          </ul>
+        </article>
+      }
+    </div>
+  </div>
+
+  <section class="cta-band">
+    <div class="container cta-band__inner">
+      <div>
+        <h2>Ungewiss, was Sie brauchen?</h2>
+        <p>Dafür ist ein Gespräch da. Wir zeigen Ihnen den richtigen Weg.</p>
+      </div>
+      <a class="btn btn--light" routerLink="/contact">Kontakt aufnehmen</a>
+    </div>
+  </section>
+</section>

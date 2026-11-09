@@ -1,0 +1,138 @@
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="container hero__inner">
+    <div class="hero__copy">
+      <span class="eyebrow">{{ site.hero.eyebrow }}</span>
+      <h1>{{ site.hero.headline }}</h1>
+      <p class="hero__sub">{{ site.hero.sub }}</p>
+      <div class="hero__actions">
+        <a class="btn btn--primary" routerLink="/contact">{{ site.hero.ctaPrimary }}</a>
+        <a class="btn btn--ghost" routerLink="/services">{{ site.hero.ctaSecondary }}</a>
+      </div>
+    </div>
+    <div class="hero__art" aria-hidden="true">
+      <div class="hero__card">
+        <span class="hero__dot"></span>
+        <span class="hero__dot hero__dot--2"></span>
+        <span class="hero__dot hero__dot--3"></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="stats">
+      @for (s of site.stats; track s.label) {
+        <div class="stat">
+          <span class="stat__value">{{ s.value }}</span>
+          <span class="stat__label">{{ s.label }}</span>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- ============ WARUM / VALUE PROPS ============ -->
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Warum ME Digital</span>
+      <h2 class="section-title">IT, die sich lohnt</h2>
+      <p class="section-lead">
+        Wir halten es einfach, sicher und auf Ihre Ziele ausgerichtet — damit Technik ein
+        Plus ist, nicht ein Kostenfaktor.
+      </p>
+    </div>
+    <div class="grid grid--3">
+      @for (v of site.valueProps; track v.title) {
+        <article class="card">
+          <div class="card__icon">{{ v.icon }}</div>
+          <h3 class="card__title">{{ v.title }}</h3>
+          <p>{{ v.text }}</p>
+        </article>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- ============ LEISTUNGEN VORSCHAU ============ -->
+<section class="section section--alt">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Leistungen</span>
+      <h2 class="section-title">Was wir für Sie tun</h2>
+      <p class="section-lead">
+        Vom Einzelprojekt bis zur laufenden Betreuung — hier liefern wir den größten Mehrwert.
+      </p>
+    </div>
+    <div class="grid grid--3">
+      @for (s of services; track s.id) {
+        <article class="card card--service">
+          <div class="card__icon">{{ s.icon }}</div>
+          <h3 class="card__title">{{ s.title }}</h3>
+          @if (s.focus) {
+            <span class="badge badge--focus">Fokus</span>
+          }
+          <p class="card__tagline">{{ s.tagline }}</p>
+          <p>{{ s.description }}</p>
+        </article>
+      }
+    </div>
+    <div class="section-cta">
+      <a class="btn btn--primary" routerLink="/services">Alle Leistungen ansehen</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SO ARBEITEN WIR ============ -->
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">So arbeiten wir</span>
+      <h2 class="section-title">Ein klarer, risikoarmer Weg</h2>
+      <p class="section-lead">Kein Nebel, kein Lock-in. Sie wissen immer, was passiert und warum.</p>
+    </div>
+    <div class="grid grid--3 process">
+      @for (p of site.process; track p.step) {
+        <article class="process__step">
+          <span class="process__num">{{ p.step }}</span>
+          <h3 class="card__title">{{ p.title }}</h3>
+          <p>{{ p.text }}</p>
+        </article>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- ============ REFERENZEN (nur wenn vorhanden) ============ -->
+@if (site.testimonials.length) {
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Referenzen</span>
+        <h2 class="section-title">Was Kunden sagen</h2>
+      </div>
+      <div class="grid grid--3">
+        @for (t of site.testimonials; track t.name) {
+          <figure class="quote">
+            <blockquote>{{ t.quote }}</blockquote>
+            <figcaption>
+              <strong>{{ t.name }}</strong>
+              <span>{{ t.role }}</span>
+            </figcaption>
+          </figure>
+        }
+      </div>
+    </div>
+  </section>
+}
+
+<!-- ============ FINALER CTA ============ -->
+<section class="cta-band">
+  <div class="container cta-band__inner">
+    <div>
+      <h2>Bereit, IT zu einem Plus zu machen?</h2>
+      <p>Sprechen wir über Ihre Ziele. Das erste Gespräch ist kostenlos.</p>
+    </div>
+    <a class="btn btn--light" routerLink="/contact">Kontakt aufnehmen</a>
+  </div>
+</section>

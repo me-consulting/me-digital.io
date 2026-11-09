@@ -1,0 +1,69 @@
+<section class="page">
+  <div class="container page__head">
+    <span class="eyebrow">Über uns</span>
+    <h1>Wer wir sind</h1>
+    <p class="section-lead">{{ site.kicker }}</p>
+  </div>
+
+  <div class="container about__grid">
+    <div class="about__bio">
+      <h2>IT, klar und praxisnah</h2>
+      <p>
+        [Schreiben Sie hier über ME Digital — 2–3 Absätze. Wer Sie sind, welchen
+        Unternehmen Sie helfen und welche Probleme Sie lösen. Ehrlich und menschlich kommt
+        besser an als eine Liste an Buzzwords.]
+      </p>
+      <p>
+        [Zweiter Absatz: Ihre Philosophie — z. B. „Gute IT funktioniert im Hintergrund: sie
+        ist sicher, verlässlich und berechenbar. Wenn etwas Ihre Aufmerksamkeit braucht,
+        sagen wir es klar und früh.“]
+      </p>
+      <p>
+        [Optionaler dritter Absatz: ein klarer Schwerpunkt — z. B. Frontend-Performance für
+        [Branche] oder der sinnvolle Einsatz von KI für [Ziel].]
+      </p>
+
+      <a class="btn btn--primary" routerLink="/contact">Kontakt aufnehmen</a>
+    </div>
+
+    <aside class="about__side">
+      <div class="about__panel">
+        <h3>Qualifikationen</h3>
+        <ul class="bul">
+          @for (c of credentials; track c) {
+            <li>{{ c }}</li>
+          }
+        </ul>
+      </div>
+      <div class="about__panel">
+        <h3>Unsere Werte</h3>
+        <ul class="bul">
+          <li>Klare, verständliche Kommunikation</li>
+          <li>Fester Umfang, fester Preis</li>
+          <li>Sicherheit & Backups von Anfang an</li>
+          <li>Sie können alles selbst weiterführen</li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Unser Weg</span>
+        <h2 class="section-title">So sind wir gewachsen</h2>
+      </div>
+      <ol class="timeline">
+        @for (m of milestones; track m.year) {
+          <li class="timeline__item">
+            <span class="timeline__year">{{ m.year }}</span>
+            <div>
+              <h3>{{ m.title }}</h3>
+              <p>{{ m.text }}</p>
+            </div>
+          </li>
+        }
+      </ol>
+    </div>
+  </section>
+</section>

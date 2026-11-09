@@ -1,0 +1,34 @@
+<header class="nav" [class.nav--scrolled]="false">
+  <div class="container nav__inner">
+    <a class="nav__brand" routerLink="/" (click)="close()" aria-label="Zur Startseite">
+      <span class="nav__mark" aria-hidden="true">◆</span>
+      <span class="nav__brand-text">{{ brand }}</span>
+    </a>
+
+    <nav class="nav__links" [class.nav__links--open]="open()" aria-label="Hauptnavigation">
+      @for (l of links; track l.href) {
+        <a
+          class="nav__link"
+          [class.is-active]="false"
+          routerLink="/{{ l.href }}"
+          routerLinkActive="is-active"
+          (click)="close()"
+          >{{ l.label }}</a
+        >
+      }
+      <a class="btn btn--primary nav__cta" routerLink="/contact" (click)="close()"
+        >Kontakt aufnehmen</a
+      >
+    </nav>
+
+    <button
+      class="nav__burger"
+      [class.is-open]="open()"
+      [attr.aria-expanded]="open()"
+      aria-label="Menü umschalten"
+      (click)="toggle()"
+    >
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>

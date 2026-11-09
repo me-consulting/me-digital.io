@@ -1,0 +1,47 @@
+<footer class="footer">
+  <div class="container footer__grid">
+    <div class="footer__brand">
+      <a class="footer__logo" routerLink="/">
+        <span class="footer__mark" aria-hidden="true">◆</span>
+        {{ site.name }}
+      </a>
+      <p>{{ site.kicker }}</p>
+      <p class="footer__muted">{{ site.role }}</p>
+    </div>
+
+    <div class="footer__col">
+      <h4>Seiten</h4>
+      <a routerLink="/">Start</a>
+      <a routerLink="/services">Leistungen</a>
+      <a routerLink="/about">Über uns</a>
+      <a routerLink="/contact">Kontakt</a>
+    </div>
+
+    <div class="footer__col">
+      <h4>Leistungen</h4>
+      @for (s of services; track s.id) {
+        <a routerLink="/services">{{ s.title }}</a>
+      }
+    </div>
+
+    <div class="footer__col">
+      <h4>Kontakt</h4>
+      <a [href]="'mailto:' + site.email">{{ site.email }}</a>
+      <a [href]="'tel:' + site.phone">{{ site.phone }}</a>
+      <p class="footer__muted">{{ site.location }}</p>
+      @if (site.socials.linkedin) {
+        <a
+          [href]="site.socials.linkedin"
+          target="_blank"
+          rel="noopener"
+          >LinkedIn ↗</a
+        >
+      }
+    </div>
+  </div>
+
+  <div class="container footer__bar">
+    <span>© {{ year }} {{ site.name }}. Alle Rechte vorbehalten.</span>
+    <span class="footer__muted">Erstellt mit Angular.</span>
+  </div>
+</footer>

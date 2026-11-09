@@ -1,0 +1,89 @@
+<section class="page">
+  <div class="container page__head">
+    <span class="eyebrow">Kontakt</span>
+    <h1>Sprechen Sie mit uns</h1>
+    <p class="section-lead">
+      Erzählen Sie uns, was Sie vorhaben. Wir antworten innerhalb eines Werktags — das erste
+      Gespräch ist kostenlos.
+    </p>
+  </div>
+
+  <div class="container contact__grid">
+    <!-- Form -->
+    <div class="contact__form card">
+      @if (sent()) {
+        <div class="contact__done">
+          <div class="contact__done-icon">✓</div>
+          <h2>Vielen Dank — Nachricht erhalten</h2>
+          <p>
+            Wir melden uns innerhalb eines Werktags. (Dies ist eine Demo; binden Sie das
+            Formular an Ihren E-Mail-Dienst an, um Nachrichten zu erhalten.)
+          </p>
+          <button class="btn btn--ghost" (click)="sent.set(false)">Weitere Nachricht senden</button>
+        </div>
+      } @else {
+        <form (ngSubmit)="submit()" novalidate>
+          <div class="field">
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" placeholder="Max Mustermann" [(ngModel)]="form().name" required />
+          </div>
+          <div class="field">
+            <label for="email">E-Mail</label>
+            <input id="email" name="email" type="email" placeholder="max@unternehmen.de" [(ngModel)]="form().email" required />
+          </div>
+          <div class="field">
+            <label for="topic">Worum geht es?</label>
+            <select id="topic" name="topic" [(ngModel)]="form().topic">
+              @for (t of topics; track t) {
+                <option>{{ t }}</option>
+              }
+            </select>
+          </div>
+          <div class="field">
+            <label for="message">Nachricht</label>
+            <textarea id="message" name="message" rows="5" placeholder="Ein paar Zeilen zu Ihrer Situation oder Ihren Zielen…" [(ngModel)]="form().message" required></textarea>
+          </div>
+
+          @if (error(); as e) {
+            <p class="contact__error">{{ e }}</p>
+          }
+
+          <button class="btn btn--primary btn--full" type="submit">Nachricht senden</button>
+          <p class="contact__note">Eher per E-Mail? Schreiben Sie uns an {{ site.email }}.</p>
+        </form>
+      }
+    </div>
+
+    <!-- Details -->
+    <aside class="contact__side">
+      <div class="contact__panel">
+        <h3>Direkt</h3>
+        <a [href]="'mailto:' + site.email">{{ site.email }}</a>
+        <a [href]="'tel:' + site.phone">{{ site.phone }}</a>
+        <p class="muted">{{ site.location }}</p>
+        @if (site.socials.linkedin) {
+          <a [href]="site.socials.linkedin" target="_blank" rel="noopener">LinkedIn ↗</a>
+        }
+      </div>
+      <div class="contact__panel">
+        <h3>So läuft es ab</h3>
+        <ol class="steps">
+          <li>Sie senden eine Nachricht oder buchen ein Gespräch.</li>
+          <li>Wir besprechen Ihre Ziele — unverbindlich.</li>
+          <li>Sie erhalten einen klaren Plan mit festem Umfang und Preis.</li>
+          <li>Wir gehen nur weiter, wenn es passt.</li>
+        </ol>
+      </div>
+
+      <div class="contact__panel">
+        <h3>Häufige Fragen</h3>
+        @for (f of faqs; track f.q) {
+          <details class="faq">
+            <summary>{{ f.q }}</summary>
+            <p>{{ f.a }}</p>
+          </details>
+        }
+      </div>
+    </aside>
+  </div>
+</section>
