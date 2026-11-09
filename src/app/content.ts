@@ -246,7 +246,7 @@ export const services: Service[] = [
     description:
       'Zugängliche, schnelle und wartbare Benutzeroberflächen — von der ersten Idee bis in den Produktivbetrieb.',
     bullets: [
-      'Angular & Vue',
+      'Angular & Vue.js',
       'Responsiv & barrierefrei (WCAG)',
       'Performance, SEO & UX',
     ],
