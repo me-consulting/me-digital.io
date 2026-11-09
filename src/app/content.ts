@@ -106,8 +106,8 @@ export const site = {
     },
     {
       icon: '⚙️',
-      title: 'Industrielle Erfahrung',
-      text: 'Erfahrung in der Automobilindustrie — von führenden Herstellern über deren Zulieferer bis zu Produktteams. Wir kennen komplexe, regulierte Umgebungen.',
+      title: 'Automotive & IT',
+      text: 'Erfahrung in der Automobilindustrie — von führenden Herstellern über deren Zulieferer bis zu Produktteams — sowie in der IT-Industrie. Wir kennen komplexe, regulierte Umgebungen ebenso wie moderne Softwareteams.',
     },
     {
       icon: '⚡',
@@ -153,7 +153,7 @@ export const site = {
   faqs: [
     {
       q: 'Mit welchen Unternehmen arbeiten Sie?',
-      a: 'Erfahrung in der Automobilindustrie — von führenden Herstellern über deren Zulieferer bis zu Produktteams und wachsenden Unternehmen.',
+      a: 'Erfahrung in der Automobilindustrie — von führenden Herstellern über deren Zulieferer bis zu Produktteams — sowie in der IT-Industrie und bei wachsenden Unternehmen.',
     },
     {
       q: 'Wie läuft ein Projekt an?',
