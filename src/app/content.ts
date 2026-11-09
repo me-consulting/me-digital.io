@@ -92,7 +92,7 @@ export const site = {
   // ── Credibility-Zahlen (ehrlich halten; nichts übertreiben) ─────────────────
   stats: [
     { value: '20+', label: 'Jahre Erfahrung' },
-    { value: '30+', label: 'Projekte umgesetzt' },
+    { value: '35+', label: 'Projekte umgesetzt' },
     { value: 'Frontend & KI', label: 'unser Fokus' },
     { value: 'Full-Stack', label: 'vom Backend bis zur Oberfläche' },
   ],
