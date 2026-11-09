@@ -174,7 +174,7 @@ export const site = {
     {
       q: 'Mit welchen Technologien arbeiten Sie?',
       a:
-        'Frontend (Angular, Vite), Backends und APIs, Cloud (AWS) sowie KI zur Prozessoptimierung — mit Claude oder lokalen Modellen, je nach Anforderung.',
+        'Frontend (Angular, Vue.js), Backends in Java und Kotlin, APIs, Cloud (AWS) und KI zur Prozessoptimierung — mit Claude oder lokalen Modellen, je nach Anforderung.',
     },
   ] as Faq[],
 
@@ -275,7 +275,7 @@ export const services: Service[] = [
     description:
       'End-to-End-Entwicklung — Frontend, Backend, API und Daten — in einem konsistenten, wartbaren Ganzen.',
     bullets: [
-      'Backends & REST-/GraphQL-APIs',
+      'Backends in Java & Kotlin, REST-/GraphQL-APIs',
       'Datenbanken & Datenmodellierung',
       'Integration von Drittsystemen',
     ],
