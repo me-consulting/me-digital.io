@@ -67,7 +67,7 @@ export const site = {
   // E-Mail temporär deaktiviert (Domain-Mail noch nicht eingerichtet).
   // Bei aktivem Postfach wieder einsetzen: 'kontakt@me-digital.io'
   email: '',
-  phone: '+49 178 88 55 55 4',
+  phone: '+49 711 9005963',
   location: 'Stuttgart, Deutschland',
   // Kontaktformular aktuell aus (Backend / Web3Forms-Key noch nicht eingerichtet).
   // Auf true setzen, sobald das Formular an einen echten Dienst angebunden ist.
@@ -191,7 +191,7 @@ export const site = {
       country: 'Deutschland',
       // E-Mail temporär deaktiviert (Domain-Mail noch nicht eingerichtet).
       email: '',
-      phone: '+49 178 88 55 55 4',
+      phone: '+49 711 9005963',
       // USt-IdNr. (umsatzsteuerpflichtig, § 27a UStG).
       vatId: 'DE304454733',
       // NUR für juristische Personen (GmbH, KG …). Einzelunternehmer -> null.
@@ -201,7 +201,7 @@ export const site = {
     datenschutz: [
       {
         heading: 'Verantwortlicher',
-        text: 'Verantwortlich für die Datenverarbeitung auf dieser Website ist Mario Ernst, Madenstr. 29, 70619 Stuttgart (Kontakt: +49 178 88 55 55 4).',
+        text: 'Verantwortlich für die Datenverarbeitung auf dieser Website ist Mario Ernst, Madenstr. 29, 70619 Stuttgart (Kontakt: +49 711 9005963).',
       },
       {
         heading: 'Erhebung und Verarbeitung',
