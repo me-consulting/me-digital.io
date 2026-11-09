@@ -64,7 +64,9 @@ export const site = {
   // Kurze, menschliche Unterzeile, die unter dem Namen in der Navigation steht.
   kicker: 'Frontend, KI & Full-Stack für wachsende Unternehmen',
   // Kontakt — bitte echte Angaben eintragen.
-  email: 'kontakt@me-digital.io',
+  // E-Mail temporär deaktiviert (Domain-Mail noch nicht eingerichtet).
+  // Bei aktivem Postfach wieder einsetzen: 'kontakt@me-digital.io'
+  email: '',
   phone: '+49 178 88 55 55 4',
   location: 'Stuttgart, Deutschland',
   // Auf null setzen, um ein Feld zu verbergen.
@@ -183,7 +185,8 @@ export const site = {
       zip: '70619',
       city: 'Stuttgart',
       country: 'Deutschland',
-      email: 'kontakt@me-digital.io',
+      // E-Mail temporär deaktiviert (Domain-Mail noch nicht eingerichtet).
+      email: '',
       phone: '+49 178 88 55 55 4',
       // USt-IdNr. (umsatzsteuerpflichtig, § 27a UStG).
       vatId: 'DE304454733',
@@ -194,7 +197,7 @@ export const site = {
     datenschutz: [
       {
         heading: 'Verantwortlicher',
-        text: 'Verantwortlich für die Datenverarbeitung auf dieser Website ist Mario Ernst, Madenstr. 29, 70619 Stuttgart (Kontakt: kontakt@me-digital.io / +49 178 88 55 55 4).',
+        text: 'Verantwortlich für die Datenverarbeitung auf dieser Website ist Mario Ernst, Madenstr. 29, 70619 Stuttgart (Kontakt: +49 178 88 55 55 4).',
       },
       {
         heading: 'Erhebung und Verarbeitung',

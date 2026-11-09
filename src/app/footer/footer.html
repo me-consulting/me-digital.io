@@ -26,7 +26,9 @@
 
     <div class="footer__col">
       <h4>Kontakt</h4>
-      <a [href]="'mailto:' + site.email">{{ site.email }}</a>
+      @if (site.email) {
+        <a [href]="'mailto:' + site.email">{{ site.email }}</a>
+      }
       <a [href]="'tel:' + site.phone">{{ site.phone }}</a>
       <p class="footer__muted">{{ site.location }}</p>
       @if (site.socials.linkedin) {

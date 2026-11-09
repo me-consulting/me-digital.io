@@ -19,9 +19,11 @@ import { site } from '../../content';
         </p>
         <p>
           <strong>Kontakt:</strong><br />
-          E-Mail:
-          <a [href]="'mailto:' + legal.impressum.email">{{ legal.impressum.email }}</a
-          ><br />
+          @if (legal.impressum.email) {
+            E-Mail:
+            <a [href]="'mailto:' + legal.impressum.email">{{ legal.impressum.email }}</a
+            ><br />
+          }
           Telefon:
           <a [href]="'tel:' + legal.impressum.phone">{{ legal.impressum.phone }}</a>
         </p>
