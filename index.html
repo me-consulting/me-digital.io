@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ME Digital — me-digital.io</title>
+    <meta
+      name="description"
+      content="ME Digital — IT-Consulting & Software-Entwicklung. Die Website ist gerade in Vorbereitung."
+    />
+    <style>
+      :root {
+        --bg: #0b1020;
+        --fg: #e8ecf7;
+        --muted: #9aa6c4;
+        --accent: #6d5efc;
+        --accent2: #22d3ee;
+      }
+      * { box-sizing: border-box; }
+      html, body { height: 100%; margin: 0; }
+      body {
+        font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+        color: var(--fg);
+        background: radial-gradient(1200px 600px at 70% -10%, #1a2350 0%, var(--bg) 60%);
+        display: grid;
+        place-items: center;
+        text-align: center;
+        padding: 24px;
+      }
+      .card {
+        max-width: 560px;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 18px;
+        padding: 48px 36px;
+        backdrop-filter: blur(6px);
+      }
+      .brand {
+        font-weight: 800;
+        font-size: 30px;
+        letter-spacing: 0.5px;
+        background: linear-gradient(90deg, var(--accent), var(--accent2));
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        margin: 0 0 6px;
+      }
+      .domain { color: var(--muted); font-size: 15px; margin: 0 0 28px; }
+      .msg { font-size: 18px; line-height: 1.6; margin: 0 0 32px; }
+      .pill {
+        display: inline-block;
+        font-size: 13px;
+        color: var(--muted);
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        padding: 8px 14px;
+        border-radius: 999px;
+      }
+      a { color: var(--accent2); }
+    </style>
+  </head>
+  <body>
+    <main class="card">
+      <h1 class="brand">ME Digital</h1>
+      <p class="domain">me-digital.io</p>
+      <p class="msg">
+        Die Website ist in Vorbereitung.
+        <br />
+        IT-Consulting &amp; Software-Entwicklung — Frontend, KI &amp; Full-Stack.
+      </p>
+      <span class="pill">Kurzfristig online</span>
+    </main>
+  </body>
+</html>
