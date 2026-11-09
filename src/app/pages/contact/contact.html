@@ -77,7 +77,6 @@
         @if (site.email) {
           <a [href]="'mailto:' + site.email">{{ site.email }}</a>
         }
-        <a [href]="'tel:' + site.phone">{{ site.phone }}</a>
         <p class="muted">{{ site.location }}</p>
         @if (site.socials.linkedin) {
           <a [href]="site.socials.linkedin" target="_blank" rel="noopener">LinkedIn ↗</a>
