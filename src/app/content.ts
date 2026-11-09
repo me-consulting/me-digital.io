@@ -198,11 +198,11 @@ export const site = {
       },
       {
         heading: 'Erhebung und Verarbeitung',
-        text: 'Beim Aufruf der Website erfasst der Webserver automatisch Informationen (Server-Logfiles): IP-Adresse, Datum/Uhrzeit des Zugriffs, aufgerufene Seite, verwendeter Browser und Betriebssystem,.referrering-URL. Rechtsgrundlage ist § 14 Abs. 1 TMG bzw. Art. 6 Abs. 1 lit. f DSGVO (Bereitstellung der Website, Sicherheit und Stabilität).',
+        text: 'Beim Aufruf der Website erfasst der Webserver automatisch Informationen (Server-Logfiles): IP-Adresse, Datum/Uhrzeit des Zugriffs, aufgerufene Seite, verwendeter Browser und Betriebssystem, Referring-URL. Rechtsgrundlage ist § 14 Abs. 1 TMG bzw. Art. 6 Abs. 1 lit. f DSGVO (Bereitstellung der Website, Sicherheit und Stabilität).',
       },
       {
         heading: 'Kontaktformular',
-        text: 'Über das Kontaktformular übermittelte Daten (Name, E-Mail, Nachricht) werden ausschließlich zur Bearbeitung Ihrer Anfrage verwendet. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO (Anbahnung eines Vertrags) bzw. lit. f (unser berechtigtes Interesse). Die Daten werden gelöscht, sobald die Anfrage bearbeitet ist bzw. kein behördliches Aufbewahrungspflicht mehr besteht.',
+        text: 'Über das Kontaktformular übermittelte Daten (Name, E-Mail, Nachricht) werden ausschließlich zur Bearbeitung Ihrer Anfrage verwendet. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO (Anbahnung eines Vertrags) bzw. lit. f (unser berechtigtes Interesse). Die Daten werden gelöscht, sobald die Anfrage bearbeitet ist bzw. keine behördliche Aufbewahrungspflicht mehr besteht.',
       },
       {
         heading: 'Cookies & Tracking',
@@ -214,7 +214,7 @@ export const site = {
       },
       {
         heading: 'Beschwerderecht',
-        text: 'Sie haben das Recht, sich bei einer Aufsichtsbehörde für den Datenschutz zu beschweren — z. B. beim Datenschutzbeauftragten des Landes, in dem Sie Ihren Wohnsitz oder Ihren gewöhnliche Aufenthaltsort haben.',
+        text: 'Sie haben das Recht, sich bei einer Aufsichtsbehörde für den Datenschutz zu beschweren — z. B. beim Datenschutzbeauftragten des Landes, in dem Sie Ihren Wohnsitz oder Ihren gewöhnlichen Aufenthaltsort haben.',
       },
     ] as LegalBlock[],
   },
