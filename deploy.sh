@@ -11,12 +11,12 @@ DEST=docs
 echo ">> building"
 pnpm build >/dev/null
 
-echo ">> deploying to $DEST/"
+echo ">> deploying to $DEST/ (clean, so stale chunks don't linger)"
+rm -rf "$DEST"
 mkdir -p "$DEST"
-# copy only the built files, keep CNAME/404/.nojekyll
 cp -r "$OUT"/. "$DEST"/
 
-# static pages files (recreated each run so they survive)
+# static pages files (not in the build output — recreated each run so they survive)
 echo "me-digital.io" > "$DEST/CNAME"
 cp "$DEST/index.html" "$DEST/404.html"   # SPA fallback
 touch "$DEST/.nojekyll"
