@@ -19,9 +19,7 @@ import { site } from '../../content';
         }
 
         <p class="legal__note">
-          Diese Datenschutzerklärung ist ein Muster nach DSGVO und § 14 TMG. Sie ist
-          vor Veröffentlichung an die tatsächlichen Gegebenheiten anzupassen und zu
-          prüfen — sie ersetzt keine Rechtsberatung.
+          Angaben gemäß DSGVO und § 14 TMG.
         </p>
       </div>
     </section>

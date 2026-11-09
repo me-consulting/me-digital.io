@@ -73,16 +73,6 @@
     <!-- Details -->
     <aside class="contact__side">
       <div class="contact__panel">
-        <h3>Direkt</h3>
-        @if (site.email) {
-          <a [href]="'mailto:' + site.email">{{ site.email }}</a>
-        }
-        <p class="muted">{{ site.location }}</p>
-        @if (site.socials.linkedin) {
-          <a [href]="site.socials.linkedin" target="_blank" rel="noopener">LinkedIn ↗</a>
-        }
-      </div>
-      <div class="contact__panel">
         <h3>So läuft es ab</h3>
         <ol class="steps">
           <li>Sie senden eine Nachricht oder buchen ein Gespräch.</li>
