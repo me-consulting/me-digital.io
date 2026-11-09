@@ -53,6 +53,13 @@ import { site } from '../../content';
           teilzunehmen.
         </p>
 
+        @for (clause of legal.impressumClauses; track clause.heading) {
+          <section class="legal__block">
+            <h2>{{ clause.heading }}</h2>
+            <p>{{ clause.text }}</p>
+          </section>
+        }
+
         <p class="legal__note">
           Angaben gemäß § 12 TDG (früher § 5 TMG). Diese Angaben sind ein Muster
           und ersetzen keine Rechtsberatung — vor Veröffentlichung prüfen lassen.
@@ -68,6 +75,17 @@ import { site } from '../../content';
     .legal p {
       line-height: 1.6;
       margin: 0 0 1rem;
+    }
+    .legal__block {
+      margin-bottom: 1.5rem;
+    }
+    .legal__block h2 {
+      font-size: 1.05rem;
+      margin: 0 0 0.5rem;
+    }
+    .legal__block p {
+      margin: 0;
+      opacity: 0.92;
     }
     .legal a {
       color: inherit;
