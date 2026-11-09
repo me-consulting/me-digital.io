@@ -69,6 +69,9 @@ export const site = {
   email: '',
   phone: '+49 178 88 55 55 4',
   location: 'Stuttgart, Deutschland',
+  // Kontaktformular aktuell aus (Backend / Web3Forms-Key noch nicht eingerichtet).
+  // Auf true setzen, sobald das Formular an einen echten Dienst angebunden ist.
+  formEnabled: false,
   // Auf null setzen, um ein Feld zu verbergen.
   socials: {
     linkedin: null as string | null,
