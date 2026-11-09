@@ -205,7 +205,7 @@ export const site = {
       },
       {
         heading: 'Erhebung und Verarbeitung',
-        text: 'Beim Aufruf der Website erfasst der Webserver automatisch Informationen (Server-Logfiles): IP-Adresse, Datum/Uhrzeit des Zugriffs, aufgerufene Seite, verwendeter Browser und Betriebssystem, Referring-URL. Rechtsgrundlage ist § 14 Abs. 1 TMG bzw. Art. 6 Abs. 1 lit. f DSGVO (Bereitstellung der Website, Sicherheit und Stabilität).',
+        text: 'Beim Aufruf der Website erfasst der Webserver automatisch Informationen (Server-Logfiles): IP-Adresse, Datum/Uhrzeit des Zugriffs, aufgerufene Seite, verwendeter Browser und Betriebssystem, Referring-URL. Die Übertragung erfolgt über eine SSL-/TLS-verschlüsselte Verbindung (HTTPS). Rechtsgrundlage ist § 15 Abs. 1 TDG bzw. Art. 6 Abs. 1 lit. f DSGVO (Bereitstellung der Website, Sicherheit und Stabilität).',
       },
       {
         heading: 'Kontaktformular',
@@ -215,6 +215,14 @@ export const site = {
         heading: 'Cookies & Tracking',
         text:
           'Diese Website verwendet keine Cookies und keine Tracking- oder Analyse-Tools (z. B. Google Analytics). Ein Cookie-Banner ist daher nicht erforderlich.',
+      },
+      {
+        heading: 'Hosting & Auftragsverarbeiter',
+        text: 'Für den Betrieb dieser Website nutzen wir den Hosting-Anbieter GitHub (GitHub Pages). Die personenbezogenen Daten (insbesondere Server-Logfiles) werden im Rahmen einer Auftragsverarbeitung gemäß Art. 28 DSGVO verarbeitet; ein Auftragsverarbeitungsvertrag liegt vor. Daten werden nicht an Dritte weitergegeben, es sei denn, dies ist zur Beantwortung einer Anfrage oder zur Aufrechterhaltung des Betriebs erforderlich.',
+      },
+      {
+        heading: 'Datenübermittlung in die USA / andere Drittländer',
+        text: 'Unser Hosting-Anbieter (GitHub) und, sobald das Kontaktformular aktiv ist, unser Formular-Anbieter (Web3Forms) sind in den USA ansässig. Personenbezogene Daten können daher in die Vereinigten Staaten oder ein anderes Land außerhalb der EU/EEA übermittelt werden. Die Übertragung stützt sich auf den Angemessenheitsbeschluss der EU zum „EU-U.S. Data Privacy Framework" bzw. auf die EU-Standardvertragsklauseln (Art. 46 DSGVO). Die einschlägigen Unterlagen können über die Europäische Kommission abgerufen werden.',
       },
       {
         heading: 'Ihre Rechte',

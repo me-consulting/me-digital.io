@@ -40,9 +40,22 @@ import { site } from '../../content';
           </p>
         }
 
+        <p>
+          <strong>Streitbeilegung:</strong> Die Europäische Kommission stellt eine
+          Plattform zur Online-Streitbeilegung (OS) bereit:
+          <a
+            href="https://ec.europa.eu/consumers/odr/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >https://ec.europa.eu/consumers/odr/</a
+          >. Wir sind nicht bereit und nicht verpflichtet, an einem
+          Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle
+          teilzunehmen.
+        </p>
+
         <p class="legal__note">
-          Angaben gemäß § 5 TMG. Diese Angaben sind ein Muster und ersetzen keine
-          Rechtsberatung — vor Veröffentlichung prüfen lassen.
+          Angaben gemäß § 12 TDG (früher § 5 TMG). Diese Angaben sind ein Muster
+          und ersetzen keine Rechtsberatung — vor Veröffentlichung prüfen lassen.
         </p>
       </div>
     </section>
