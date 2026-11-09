@@ -169,7 +169,7 @@ export const site = {
     {
       q: 'Bieten Sie laufende Betreuung an?',
       a:
-        'Ja. Projekte können einmalig sein, oder wir übernehmen auf Wunsch Monitoring, Updates und Support.',
+        'Ja. Neben einmaligen Projekten bieten wir laufende Betreuung an — Monitoring, Updates und Support, damit Ihre Lösung stabil, aktuell und performant bleibt. So können Sie sich auf Ihr Kerngeschäft konzentrieren, während wir den laufenden Betrieb, die Wartung und die Weiterentwicklung übernehmen. Umfang und Takt passen wir gemeinsam an Ihre Anforderungen an.',
     },
     {
       q: 'Mit welchen Technologien arbeiten Sie?',
