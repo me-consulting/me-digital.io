@@ -157,8 +157,9 @@ export const site = {
   // Kundenfreigabe vorliegt.
   faqs: [
     {
-      q: 'Mit welchen Unternehmen arbeiten Sie?',
-      a: 'Erfahrung in der Automobilindustrie — von führenden Herstellern über deren Zulieferer bis zu Produktteams — sowie in der IT-Industrie und bei wachsenden Unternehmen.',
+      q: 'In welchen Branchen haben Sie Erfahrung?',
+      a:
+        'Wir bringen Erfahrung aus der Automobilindustrie — von führenden Herstellern über deren Zulieferer bis zu Produktteams — ebenso aus der IT-Industrie und bei wachsenden Unternehmen.',
     },
     {
       q: 'Wie läuft ein Projekt an?',
