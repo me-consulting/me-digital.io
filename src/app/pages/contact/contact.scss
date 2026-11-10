@@ -61,6 +61,18 @@
   border-color: var(--brand);
   box-shadow: 0 0 0 3px color-mix(in srgb, var(--brand) 25%, transparent);
 }
+/* Select: eigener Chevron-Pfeil mit Abstand rechts (statt engem Nativ-Pfeil) */
+.field select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  padding-right: 2.5rem;
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20fill='none'%20viewBox='0%200%2024%2024'%20stroke='%2364748b'%20stroke-width='2'%3E%3Cpath%20stroke-linecap='round'%20stroke-linejoin='round'%20d='M19%209l-7%207-7-7'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.85rem center;
+  background-size: 1rem;
+  cursor: pointer;
+}
 .btn--full {
   width: 100%;
   justify-content: center;
@@ -117,6 +129,55 @@
   color: var(--muted);
   max-width: 42ch;
   margin: 0.5rem auto 1.5rem;
+}
+
+/* Telefon-Box (oberste Box in der Spalte) */
+.contact__phone-link {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.5rem;
+  box-shadow: var(--shadow);
+  text-decoration: none;
+  color: var(--ink);
+  transition: border-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+}
+.contact__phone-link:hover {
+  border-color: var(--brand);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-lg, var(--shadow));
+}
+.contact__phone-icon {
+  flex: none;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: var(--brand);
+  background: color-mix(in srgb, var(--brand) 12%, transparent);
+}
+.contact__phone-icon svg {
+  width: 22px;
+  height: 22px;
+}
+.contact__phone-label {
+  display: block;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  font-weight: 600;
+}
+.contact__phone-number {
+  display: block;
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-top: 0.15rem;
+  letter-spacing: -0.01em;
 }
 
 /* Side panels */
