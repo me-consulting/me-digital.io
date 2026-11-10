@@ -20,7 +20,7 @@
             <button class="btn btn--ghost" (click)="sent.set(false)">Weitere Nachricht senden</button>
           </div>
         } @else {
-          <form (ngSubmit)="submit($event)" novalidate>
+          <form (submit)="submit($event)" novalidate>
             <!-- Web3Forms-Honeypot: versteckt, fängt Bots. Menschen berühren es nie. -->
             <input
               type="checkbox"

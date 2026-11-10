@@ -139,11 +139,13 @@
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  padding: 1.25rem 1.5rem;
+  padding: 1.1rem 1.25rem;
   box-shadow: var(--shadow);
   text-decoration: none;
   color: var(--ink);
   transition: border-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+  /* saubere Lücke zur nächsten Box (gleicher Rhythmus wie die Panels) */
+  margin-bottom: 1.25rem;
 }
 .contact__phone-link:hover {
   border-color: var(--brand);
