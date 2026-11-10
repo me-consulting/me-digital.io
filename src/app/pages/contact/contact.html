@@ -13,11 +13,25 @@
     <div class="contact__form card">
       @if (site.formEnabled) {
         @if (sent()) {
-          <div class="contact__done">
-            <div class="contact__done-icon">✓</div>
-            <h2>Vielen Dank — Nachricht erhalten</h2>
-            <p>Wir melden uns innerhalb eines Werktags bei Ihnen.</p>
-            <button class="btn btn--ghost" (click)="sent.set(false)">Weitere Nachricht senden</button>
+          <div class="contact__done" role="status">
+            <div class="contact__done-icon" aria-hidden="true">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path class="contact__check" d="M20 6 9 17l-5-5" />
+              </svg>
+            </div>
+            <h2>Vielen Dank{{ sentName() ? ', ' + sentName() : '' }}!</h2>
+            <p>
+              Ihre Nachricht ist bei uns eingegangen. Wir melden uns innerhalb eines
+              Werktags bei Ihnen — meist schon früher.
+            </p>
+            <button class="btn btn--ghost" (click)="newMessage()">Weitere Nachricht senden</button>
           </div>
         } @else {
           <form (submit)="submit($event)" novalidate>

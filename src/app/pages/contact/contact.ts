@@ -21,7 +21,15 @@ export class Contact {
   readonly sent = signal(false);
   readonly error = signal('');
   readonly sending = signal(false);
+  readonly sentName = signal(''); // Vorname fuer die persoenliche Erfolgsmeldung
   readonly topics = ['Allgemein', 'Neues Projekt', 'Laufende Betreuung', 'Sicherheit'];
+
+  // Formular zuruecksetzen (Button "Weitere Nachricht senden").
+  newMessage(): void {
+    this.sent.set(false);
+    this.sentName.set('');
+    this.error.set('');
+  }
 
   // Sendet das Formular an Web3Forms (Konfiguration in content.ts → site.form).
   // Web3Forms leitet die Nachricht an das hinterlegte E-Mail-Postfach weiter.
@@ -62,6 +70,8 @@ export class Contact {
       const res = await fetch(site.form.endpoint, { method: 'POST', body });
       const data = (await res.json().catch(() => null)) as { status?: string; message?: string } | null;
       if (res.ok && data?.status === 'success') {
+        // Vorname vor dem Zuruecksetzen sichern -> persoenliche Begruesung.
+        this.sentName.set(this.name().trim().split(/\s+/)[0]);
         this.sent.set(true);
         this.name.set('');
         this.email.set('');

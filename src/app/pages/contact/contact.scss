@@ -96,26 +96,50 @@
 /* Success */
 .contact__done {
   text-align: center;
-  padding: 1rem;
+  padding: 2.25rem 1.5rem;
+  animation: done-in 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 .contact__done-icon {
-  width: 56px;
-  height: 56px;
+  width: 68px;
+  height: 68px;
   border-radius: 50%;
   display: grid;
   place-items: center;
-  margin: 0 auto 1rem;
-  font-size: 1.6rem;
+  margin: 0 auto 1.25rem;
   color: #fff;
   background: var(--accent-grad);
+  box-shadow: 0 10px 28px -8px var(--brand);
+}
+.contact__done-icon svg {
+  width: 34px;
+  height: 34px;
+}
+.contact__check {
+  stroke-dasharray: 30;
+  stroke-dashoffset: 30;
+  animation: check-draw 0.5s 0.18s cubic-bezier(0.65, 0, 0.45, 1) forwards;
 }
 .contact__done h2 {
-  font-size: 1.4rem;
+  font-size: 1.55rem;
+  margin: 0;
+  letter-spacing: -0.01em;
 }
 .contact__done p {
   color: var(--muted);
   max-width: 42ch;
-  margin: 0.5rem auto 1.5rem;
+  margin: 0.75rem auto 1.75rem;
+  line-height: 1.65;
+}
+@keyframes done-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes check-draw {
+  to { stroke-dashoffset: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .contact__done { animation: none; }
+  .contact__check { animation: none; stroke-dashoffset: 0; }
 }
 
 .contact__soon {
