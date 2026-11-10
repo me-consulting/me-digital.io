@@ -76,7 +76,8 @@ export const site = {
     provider: 'web3forms',
     endpoint: 'https://api.web3forms.com/submit',
     accessKey: '043ddefc-7f74-402b-bffe-7b746d949d82',
-    subject: 'Neue Kontaktanfrage über die Website',
+    fromName: 'ME Digital',
+    subject: 'Neue Kontaktanfrage — ME Digital',
   },
   formEnabled: true,
   // Auf null setzen, um ein Feld zu verbergen.

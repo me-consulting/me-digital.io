@@ -45,10 +45,14 @@ export class Contact {
 
     const body = new FormData();
     body.append('access_key', site.form.accessKey);
-    body.append('name', this.name().trim());
-    body.append('email', this.email().trim());
-    body.append('topic', this.topic());
-    body.append('message', this.message().trim());
+    // E-Mail-Präsentation (Web3Forms): sauberer Absender, Reply-To → Kunde,
+    // deutsche Feldbezeichnungen für eine natürliche, lesbare Mail.
+    body.append('from_name', site.form.fromName);
+    body.append('replyto', this.email().trim());
+    body.append('Name', this.name().trim());
+    body.append('E-Mail', this.email().trim());
+    body.append('Angelegenheit', this.topic());
+    body.append('Nachricht', this.message().trim());
     body.append('subject', site.form.subject);
     // Kein botcheck-Wert nötig: Web3Forms prüft Spam zusätzlich serverseitig.
 
