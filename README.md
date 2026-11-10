@@ -1,59 +1,90 @@
-# ItConsultant
+# ME Digital
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.2.6.
+Modern, single-page business website for **ME Digital** — an independent IT consultant
+(frontend, full-stack, cloud & AI). German-language, deployed to **GitHub Pages**
+(`me-digital.io`).
 
-## Development server
+Generated with [Angular CLI](https://github.com/angular/angular-cli) v22.2.6.
 
-To start a local development server, run:
+## Tech stack
 
-```bash
-ng serve
-```
+- **Angular 22** — standalone components, `@angular/build` (esbuild)
+- **pnpm** — pinned to `12.3.4` via the `packageManager` field
+- **TypeScript** ~6.0 · **RxJS** 7.8
+- Custom CSS (no CSS framework); self-hosted **Inter** font — no external CDNs / Google Fonts
+- **Vitest** for unit tests (`ng test`); no e2e framework configured
+- No SSR — content is static and client-rendered
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Project layout
 
-## Code scaffolding
+- `src/app/content.ts` — **single source of truth for all copy**. Navigation, footer,
+  every page and the legal pages all read from this one file; nothing is duplicated.
+  Edit content here.
+- `src/app/pages/{home,services,about,contact,impressum,datenschutz}/` — one folder per route
+- `src/app/nav/`, `src/app/footer/` — shared header / footer
+- `src/app/app.routes.ts` — routes, lazy-loaded per page
+- `public/` — static assets (favicon, web manifest, self-hosted font)
+- `deploy.sh` — build + publish to GitHub Pages
+- `docs/` — **published artifacts** (tracked, deployed to Pages). Generated — **do not
+  edit by hand.**
+- `dist/` — local build output (git-ignored)
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+## Getting started
 
 ```bash
-ng test
+corepack enable            # or: npm i -g pnpm@12.3.4
+pnpm install
+pnpm start                 # dev server → http://localhost:4200
+                           # custom port: pnpm start -- --port 3000
 ```
 
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
+## Build
 
 ```bash
-ng e2e
+pnpm build                 # → dist/it-consultant/browser/
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+The project name is still `it-consultant`, which is why the build output lives at
+`dist/it-consultant/browser/`. Not required to change for the site to work.
 
-## Additional Resources
+## Deploy (GitHub Pages)
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+```bash
+./deploy.sh
+```
+
+Builds the app, copies the output into `docs/`, then **recreates** the static files that
+must survive a clean deploy — `CNAME` (→ `me-digital.io`), `404.html` (SPA fallback) and
+`.nojekyll` — and finally commits + pushes to `develop:/docs`. GitHub Pages re-publishes
+in ~1–2 minutes.
+
+> ⚠️ Do **not** delete `docs/` by hand (e.g. `rm -rf docs`) and re-copy only the build
+> output — that removes `CNAME` / `404.html` and the custom domain drops to a 404.
+> `deploy.sh` recreates those files on every run, so just run it.
+
+## Content & toggles
+
+All text lives in `src/app/content.ts`. Current temporary toggles:
+
+- `site.email` — `''` (empty) → the email link is hidden everywhere (domain mail not set
+  up yet). Set it to e.g. `'kontakt@me-digital.io'` to re-enable.
+- `site.formEnabled` — `false` → the contact form is hidden and replaced by a
+  "Kontaktformular folgt in Kürze" panel. Set to `true` once a real backend (e.g.
+  Web3Forms) is wired up.
+- `site.socials.linkedin` — `null` → the LinkedIn link is hidden.
+
+## Legal
+
+The `Impressum` and `Datenschutz` pages are data-driven from `content.ts`
+(`legal.impressum`, `legal.datenschutz`, `legal.impressumClauses`). USt-IdNr is
+`DE304454733`; the register fields are `null` (Einzelunternehmer, no GmbH/AG).
+
+## Brand & domain
+
+Brand is **ME Digital** (domain **me-digital.io**) — there is no "ME Consulting" anywhere
+in `src/`.
+
+## Additional resources
+
+For Angular CLI command references, see the
+[Angular CLI Overview and Command Reference](https://angular.dev/tools/cli).
