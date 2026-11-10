@@ -66,6 +66,10 @@
   justify-content: center;
   margin-top: 0.5rem;
 }
+.btn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
 .contact__note {
   color: var(--muted);
   font-size: 0.85rem;

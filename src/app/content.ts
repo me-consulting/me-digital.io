@@ -69,9 +69,16 @@ export const site = {
   email: '',
   phone: '+49 711 12893038',
   location: 'Stuttgart, Deutschland',
-  // Kontaktformular aktuell aus (Backend / Web3Forms-Key noch nicht eingerichtet).
-  // Auf true setzen, sobald das Formular an einen echten Dienst angebunden ist.
-  formEnabled: false,
+  // Kontaktformular: Web3Forms — kein eigenes Backend nötig.
+  // access_key stammt aus dem Web3Forms-Dashboard (Formular 043ddefc-…).
+  // formEnabled auf false setzen, um das Formular wieder auszuhalten.
+  form: {
+    provider: 'web3forms',
+    endpoint: 'https://api.web3forms.com/submit',
+    accessKey: '043ddefc-7f74-402b-bffe-7b746d949d82',
+    subject: 'Neue Kontaktanfrage über die Website',
+  },
+  formEnabled: true,
   // Auf null setzen, um ein Feld zu verbergen.
   socials: {
     linkedin: null as string | null,

@@ -16,25 +16,53 @@
           <div class="contact__done">
             <div class="contact__done-icon">✓</div>
             <h2>Vielen Dank — Nachricht erhalten</h2>
-            <p>
-              Wir melden uns innerhalb eines Werktags. (Dies ist eine Demo; binden Sie das
-              Formular an Ihren E-Mail-Dienst an, um Nachrichten zu erhalten.)
-            </p>
+            <p>Wir melden uns innerhalb eines Werktags bei Ihnen.</p>
             <button class="btn btn--ghost" (click)="sent.set(false)">Weitere Nachricht senden</button>
           </div>
         } @else {
           <form (ngSubmit)="submit()" novalidate>
+            <!-- Web3Forms-Honeypot: versteckt, fängt Bots. Menschen berühren es nie. -->
+            <input
+              type="checkbox"
+              name="botcheck"
+              style="display:none"
+              aria-hidden="true"
+              tabindex="-1"
+              [checked]="honeypot()"
+              (change)="honeypot.set($any($event.target).checked)"
+            />
             <div class="field">
               <label for="name">Name</label>
-              <input id="name" name="name" type="text" placeholder="Max Mustermann" [(ngModel)]="form().name" required />
+              <input
+                id="name"
+                name="name"
+                type="text"
+                placeholder="Max Mustermann"
+                [value]="name()"
+                (input)="name.set($any($event.target).value)"
+                required
+              />
             </div>
             <div class="field">
               <label for="email">E-Mail</label>
-              <input id="email" name="email" type="email" placeholder="max@unternehmen.de" [(ngModel)]="form().email" required />
+              <input
+                id="email"
+                name="email"
+                type="email"
+                placeholder="max@unternehmen.de"
+                [value]="email()"
+                (input)="email.set($any($event.target).value)"
+                required
+              />
             </div>
             <div class="field">
               <label for="topic">Worum geht es?</label>
-              <select id="topic" name="topic" [(ngModel)]="form().topic">
+              <select
+                id="topic"
+                name="topic"
+                [value]="topic()"
+                (change)="topic.set($any($event.target).value)"
+              >
                 @for (t of topics; track t) {
                   <option>{{ t }}</option>
                 }
@@ -42,14 +70,24 @@
             </div>
             <div class="field">
               <label for="message">Nachricht</label>
-              <textarea id="message" name="message" rows="5" placeholder="Ein paar Zeilen zu Ihrer Situation oder Ihren Zielen…" [(ngModel)]="form().message" required></textarea>
+              <textarea
+                id="message"
+                name="message"
+                rows="5"
+                placeholder="Ein paar Zeilen zu Ihrer Situation oder Ihren Zielen…"
+                [value]="message()"
+                (input)="message.set($any($event.target).value)"
+                required
+              ></textarea>
             </div>
 
             @if (error(); as e) {
               <p class="contact__error">{{ e }}</p>
             }
 
-            <button class="btn btn--primary btn--full" type="submit">Nachricht senden</button>
+            <button class="btn btn--primary btn--full" type="submit" [disabled]="sending()">
+              @if (sending()) { Sende… } @else { Nachricht senden }
+            </button>
             @if (site.email) {
               <p class="contact__note">Eher per E-Mail? Schreiben Sie uns an {{ site.email }}.</p>
             }
