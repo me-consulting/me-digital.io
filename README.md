@@ -49,14 +49,31 @@ The project name is still `it-consultant`, which is why the build output lives a
 
 ## Deploy (GitHub Pages)
 
+Two branches: **`develop`** for development, **`main`** is the **published** branch
+(GitHub Pages source: branch **`main`**, folder **`/docs`**).
+
 ```bash
-./deploy.sh
+./deploy.sh                # build + push to develop:/docs
 ```
 
-Builds the app, copies the output into `docs/`, then **recreates** the static files that
-must survive a clean deploy — `CNAME` (→ `me-digital.io`), `404.html` (SPA fallback) and
-`.nojekyll` — and finally commits + pushes to `develop:/docs`. GitHub Pages re-publishes
-in ~1–2 minutes.
+`deploy.sh` builds the app, copies the output into `docs/`, then **recreates** the static
+files that must survive a clean deploy — `CNAME` (→ `me-digital.io`), `404.html` (SPA
+fallback) and `.nojekyll` — and commits + pushes to `develop:/docs`.
+
+To publish a dev branch to the live site, fast-forward `main` onto it and push:
+
+```bash
+git checkout main
+git pull --rebase origin main
+git merge --ff-only develop
+git push origin main
+```
+
+GitHub Pages re-publishes `main` in ~1–2 minutes.
+
+> In this devcontainer the shell's `VSCODE_GIT_IPC_HANDLE` points at a stale socket, so a
+> plain `git push` fails with `ECONNREFUSED`. `deploy.sh` already probes the live socket;
+> for manual pushes use `VSCODE_GIT_IPC_HANDLE=<live-sock> git push …`.
 
 > ⚠️ Do **not** delete `docs/` by hand (e.g. `rm -rf docs`) and re-copy only the build
 > output — that removes `CNAME` / `404.html` and the custom domain drops to a 404.
@@ -64,13 +81,15 @@ in ~1–2 minutes.
 
 ## Content & toggles
 
-All text lives in `src/app/content.ts`. Current temporary toggles:
+All text lives in `src/app/content.ts`. Current toggles:
 
 - `site.email` — `''` (empty) → the email link is hidden everywhere (domain mail not set
   up yet). Set it to e.g. `'kontakt@me-digital.io'` to re-enable.
-- `site.formEnabled` — `false` → the contact form is hidden and replaced by a
-  "Kontaktformular folgt in Kürze" panel. Set to `true` once a real backend (e.g.
-  Web3Forms) is wired up.
+- `site.formEnabled` — `true` → the contact form is **live**, submitted to
+  **Web3Forms** (`site.form.accessKey`, `site.form.subject`, `site.form.fromName`). The
+  form is signal-based (`[value]` / `(input)`, no `ngModel`) with a hidden honeypot for
+  spam and a `submit` handler that `preventDefault()`s so the page never reloads. Set to
+  `false` to hide the form again.
 - `site.socials.linkedin` — `null` → the LinkedIn link is hidden.
 
 ## Legal
