@@ -25,7 +25,9 @@ export class Contact {
 
   // Sendet das Formular an Web3Forms (Konfiguration in content.ts → site.form).
   // Web3Forms leitet die Nachricht an das hinterlegte E-Mail-Postfach weiter.
-  async submit(): Promise<void> {
+  async submit(event: Event): Promise<void> {
+    // Formular native Submit-Verhalten stoppen (sonst Reload statt Erfolgs-Panel).
+    event.preventDefault();
     if (!this.name().trim() || !this.email().trim() || !this.message().trim()) {
       this.error.set('Bitte geben Sie Name, eine gültige E-Mail-Adresse und eine Nachricht an.');
       this.sent.set(false);
