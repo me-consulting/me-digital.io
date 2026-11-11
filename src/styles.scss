@@ -189,6 +189,9 @@ img {
 .grid--2 {
   grid-template-columns: repeat(2, 1fr);
 }
+.grid--4 {
+  grid-template-columns: repeat(4, 1fr);
+}
 
 /* Cards */
 .card {
@@ -246,13 +249,15 @@ img {
 }
 
 @media (max-width: 900px) {
-  .grid--3 {
+  .grid--3,
+  .grid--4 {
     grid-template-columns: 1fr 1fr;
   }
 }
 @media (max-width: 640px) {
   .grid--3,
-  .grid--2 {
+  .grid--2,
+  .grid--4 {
     grid-template-columns: 1fr;
   }
 }

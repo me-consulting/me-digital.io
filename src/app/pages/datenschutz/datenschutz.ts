@@ -26,8 +26,14 @@ import { site } from '../../content';
   `,
   styles: [
     `
+    .page__head {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto;
+    }
     .legal {
       max-width: 760px;
+      margin: 0 auto;
     }
     .legal__block {
       margin-bottom: 1.5rem;

@@ -46,6 +46,28 @@
   margin-bottom: 0.75rem;
 }
 
+.about__stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem 1rem;
+}
+.about__stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+.about__stat-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--brand);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+.about__stat-label {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
 /* ---------- Timeline ---------- */
 .section-head {
   text-align: center;

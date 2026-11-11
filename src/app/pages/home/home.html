@@ -35,7 +35,7 @@
         Plus ist, nicht ein Kostenfaktor.
       </p>
     </div>
-    <div class="grid grid--3">
+    <div class="grid grid--2">
       @for (v of site.valueProps; track v.title) {
         <article class="card">
           <div class="card__icon"><app-icon [name]="v.icon" /></div>
@@ -69,6 +69,12 @@
           <p>{{ s.description }}</p>
         </article>
       }
+      <a class="card card--cta" routerLink="/contact">
+        <div class="card__icon"><app-icon name="message" /></div>
+        <h3 class="card__title">Ihr Projekt ist einzigartig</h3>
+        <p class="card__tagline">Maßgeschneidert, nicht von der Stange</p>
+        <p>Sprechen wir über Ihre Anforderungen — das erste Gespräch ist kostenlos.</p>
+      </a>
     </div>
     <div class="section-cta">
       <a class="btn btn--primary" routerLink="/services">Alle Leistungen ansehen</a>
@@ -84,7 +90,7 @@
       <h2 class="section-title">Ein klarer, risikoarmer Weg</h2>
       <p class="section-lead">Kein Nebel, kein Lock-in. Sie wissen immer, was passiert und warum.</p>
     </div>
-    <div class="grid grid--3 process">
+    <div class="grid grid--4 process">
       @for (p of site.process; track p.step) {
         <article class="process__step">
           <span class="process__num">{{ p.step }}</span>

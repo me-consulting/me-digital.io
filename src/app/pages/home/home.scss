@@ -93,6 +93,33 @@
   margin: 0.15rem 0 0.5rem;
 }
 
+/* ---------- CTA card (fills a service grid, links to contact) ---------- */
+.card--cta {
+  background: var(--dark);
+  color: #fff;
+  border-color: transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-decoration: none;
+}
+.card--cta:hover {
+  text-decoration: none;
+}
+.card--cta .card__icon {
+  background: rgba(255, 255, 255, 0.14);
+  color: #fff;
+}
+.card--cta .card__title {
+  color: #fff;
+}
+.card--cta .card__tagline {
+  color: var(--brand-2);
+}
+.card--cta p {
+  color: rgba(255, 255, 255, 0.85);
+}
+
 /* ---------- Process ---------- */
 .process__step {
   position: relative;
