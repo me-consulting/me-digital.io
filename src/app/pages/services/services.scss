@@ -36,9 +36,14 @@
   align-items: flex-start;
 }
 .service__icon {
-  font-size: 1.8rem;
-  line-height: 1;
-  padding-top: 0.15rem;
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  background: color-mix(in srgb, var(--brand) 12%, transparent);
+  color: var(--brand);
 }
 .service__head h2 {
   font-size: 1.35rem;

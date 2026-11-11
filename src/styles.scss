@@ -78,6 +78,19 @@ h4 {
   letter-spacing: -0.02em;
 }
 
+/* Self-hosted line icons (<app-icon>) */
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: inherit;
+}
+.icon__svg {
+  width: 1.5rem;
+  height: 1.5rem;
+  flex: none;
+}
+
 a {
   color: var(--brand);
   text-decoration: none;

@@ -38,7 +38,7 @@
     <div class="grid grid--3">
       @for (v of site.valueProps; track v.title) {
         <article class="card">
-          <div class="card__icon">{{ v.icon }}</div>
+          <div class="card__icon"><app-icon [name]="v.icon" /></div>
           <h3 class="card__title">{{ v.title }}</h3>
           <p>{{ v.text }}</p>
         </article>
@@ -60,7 +60,7 @@
     <div class="grid grid--3">
       @for (s of services; track s.id) {
         <article class="card card--service">
-          <div class="card__icon">{{ s.icon }}</div>
+          <div class="card__icon"><app-icon [name]="s.icon" /></div>
           <h3 class="card__title">{{ s.title }}</h3>
           @if (s.focus) {
             <span class="badge badge--focus">Fokus</span>

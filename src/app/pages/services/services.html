@@ -13,7 +13,7 @@
       @for (s of services; track s.id) {
         <article class="service" id="{{ s.id }}">
           <div class="service__head">
-            <span class="service__icon">{{ s.icon }}</span>
+            <span class="service__icon"><app-icon [name]="s.icon" /></span>
             <div>
               <h2>
                 {{ s.title }}

@@ -108,22 +108,22 @@ export const site = {
   // ── Warum ME Digital ────────────────────────────────────────────────────────
   valueProps: [
     {
-      icon: '🎯',
+      icon: 'target',
       title: 'Pragmatisch statt über-engineert',
       text: 'Wir lösen Ihr Problem mit dem richtigen Maß — nicht mit überdimensionierten Lösungen, die Sie nur warten müssten.',
     },
     {
-      icon: '🧠',
+      icon: 'focus',
       title: 'Fokus auf Frontend & KI',
       text: 'Zwei Schwerpunkte, in denen wir stark sind — und Full-Stack, wenn das Projekt es verlangt.',
     },
     {
-      icon: '⚙️',
+      icon: 'settings',
       title: 'Automotive & IT',
       text: 'Erfahrung in der Automobilindustrie — von führenden Herstellern über deren Zulieferer bis zu Produktteams — sowie in der IT-Industrie. Wir kennen komplexe, regulierte Umgebungen ebenso wie moderne Softwareteams.',
     },
     {
-      icon: '⚡',
+      icon: 'zap',
       title: 'Klar & direkt',
       text: 'Direkter Draht zum Team, schnelle Rückmeldung und verständliche Kommunikation — kein Support-Karussell.',
     },
@@ -263,7 +263,7 @@ export const site = {
 export const services: Service[] = [
   {
     id: 'frontend',
-    icon: '🎨',
+    icon: 'code',
     title: 'Frontend-Entwicklung',
     tagline: 'Moderne, performante Web-Apps',
     description:
@@ -277,7 +277,7 @@ export const services: Service[] = [
   },
   {
     id: 'ki',
-    icon: '🧠',
+    icon: 'sparkles',
     title: 'KI & Prozessoptimierung',
     tagline: 'Prozesse mit KI smarter machen',
     description:
@@ -292,7 +292,7 @@ export const services: Service[] = [
   },
   {
     id: 'fullstack',
-    icon: '🧩',
+    icon: 'layers',
     title: 'Full-Stack-Entwicklung',
     tagline: 'Vom Datenmodell bis zur Oberfläche',
     description:
@@ -305,7 +305,7 @@ export const services: Service[] = [
   },
   {
     id: 'cloud',
-    icon: '☁️',
+    icon: 'cloud',
     title: 'Cloud & DevOps',
     tagline: 'Stabil, skalierbar, kosteneffizient',
     description:
@@ -318,7 +318,7 @@ export const services: Service[] = [
   },
   {
     id: 'beratung',
-    icon: '🧭',
+    icon: 'compass',
     title: 'IT-Beratung & Architektur',
     tagline: 'Richtige Entscheidungen, klar begründet',
     description:

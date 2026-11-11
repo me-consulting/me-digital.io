@@ -77,6 +77,16 @@
 }
 
 /* ---------- Cards / tagline ---------- */
+.card__icon {
+  display: grid;
+  place-items: center;
+  width: 54px;
+  height: 54px;
+  border-radius: 14px;
+  background: color-mix(in srgb, var(--brand) 12%, transparent);
+  color: var(--brand);
+  margin-bottom: 1.1rem;
+}
 .card__tagline {
   font-weight: 600;
   color: var(--brand);
