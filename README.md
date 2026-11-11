@@ -34,7 +34,7 @@ Generated with [Angular CLI](https://github.com/angular/angular-cli) v22.2.6.
 ```bash
 corepack enable            # or: npm i -g pnpm@12.3.4
 pnpm install
-pnpm start                 # dev server → http://localhost:4200
+pnpm start                 # dev server → http://localhost:4444
                            # custom port: pnpm start -- --port 3000
 ```
 
