@@ -21,19 +21,19 @@
    ============================================================ */
 
 :root {
-  /* Brand */
-  --brand: #6366f1;        /* indigo  */
-  --brand-2: #22d3ee;      /* cyan    */
+  /* Brand — warm copper palette (ckr-inspired) */
+  --brand: #b8732e;        /* copper  */
+  --brand-2: #d98e3d;      /* amber   */
   --accent-grad: linear-gradient(135deg, var(--brand), var(--brand-2));
 
-  /* Surfaces */
-  --bg: #ffffff;
-  --bg-alt: #f8fafc;       /* section band        */
+  /* Surfaces — warm cream base, white cards */
+  --bg: #f7f3ec;           /* cream         */
+  --bg-alt: #f1e8da;       /* section band  */
   --surface: #ffffff;
-  --ink: #0f172a;          /* primary text        */
-  --muted: #475569;        /* secondary text      */
-  --border: #e2e8f0;
-  --dark: #0b1020;         /* dark sections/footer */
+  --ink: #1c1a17;          /* warm anthracite */
+  --muted: #6b6157;        /* warm gray text  */
+  --border: #e8dfd1;
+  --dark: #171410;         /* warm dark/footer */
 
   /* Type */
   --font: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica,
@@ -44,8 +44,8 @@
   /* Rhythm */
   --radius: 16px;
   --radius-sm: 10px;
-  --shadow: 0 10px 30px -12px rgba(15, 23, 42, 0.18);
-  --shadow-lg: 0 24px 60px -20px rgba(15, 23, 42, 0.28);
+  --shadow: 0 10px 30px -12px rgba(40, 30, 15, 0.14);
+  --shadow-lg: 0 24px 60px -20px rgba(40, 30, 15, 0.24);
   --maxw: 1160px;
   --gap: 1.5rem;
 }
