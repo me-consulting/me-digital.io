@@ -64,9 +64,8 @@ export const site = {
   // Kurze, menschliche Unterzeile, die unter dem Namen in der Navigation steht.
   kicker: 'Frontend, KI & Full-Stack für wachsende Unternehmen',
   // Kontakt — bitte echte Angaben eintragen.
-  // E-Mail temporär deaktiviert (Domain-Mail noch nicht eingerichtet).
-  // Bei aktivem Postfach wieder einsetzen: 'kontakt@me-digital.io'
-  email: '',
+  // E-Mail (Domain-Postfach aktiv).
+  email: 'mail@me-digital.io',
   phone: '+49 711 12893038',
   location: 'Stuttgart, Deutschland',
   // Kontaktformular: Web3Forms — kein eigenes Backend nötig.
@@ -197,8 +196,7 @@ export const site = {
       zip: '70619',
       city: 'Stuttgart',
       country: 'Deutschland',
-      // E-Mail temporär deaktiviert (Domain-Mail noch nicht eingerichtet).
-      email: '',
+      email: 'mail@me-digital.io',
       phone: '+49 711 12893038',
       // USt-IdNr. (umsatzsteuerpflichtig, § 27a UStG).
       vatId: 'DE304454733',
