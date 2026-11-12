@@ -68,8 +68,12 @@ export class Contact {
 
     try {
       const res = await fetch(site.form.endpoint, { method: 'POST', body });
-      const data = (await res.json().catch(() => null)) as { status?: string; message?: string } | null;
-      if (res.ok && data?.status === 'success') {
+      const data = (await res.json().catch(() => null)) as
+        | { success?: boolean | string; message?: string; statusCode?: number; error?: string }
+        | null;
+      // Web3Forms signalisiert Erfolg per `success: true` (nicht `status`).
+      // 200 + success -> grüne Dankeskarte; sonst deutsche Fehlermeldung.
+      if (res.ok && (data?.success === true || data?.success === 'true')) {
         // Vorname vor dem Zuruecksetzen sichern -> persoenliche Begruesung.
         this.sentName.set(this.name().trim().split(/\s+/)[0]);
         this.sent.set(true);
@@ -79,7 +83,8 @@ export class Contact {
         this.message.set('');
       } else {
         // Niemals den rohen (englischen) Web3Forms-Text anzeigen — immer auf Deutsch.
-        this.error.set(this.deError(data?.status, data?.message));
+        const raw = data?.message || data?.error;
+        this.error.set(this.deError(data?.statusCode ? String(data.statusCode) : undefined, raw));
       }
     } catch {
       console.error('[contact] Netzwerkfehler beim Versand an Web3Forms');
