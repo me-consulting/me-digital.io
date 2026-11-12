@@ -87,10 +87,43 @@
   font-size: 0.85rem;
   margin: 0.75rem 0 0;
 }
-.contact__error {
-  color: #dc2626;
+/* Error alert — mirrors the success card's visual language (icon + surface +
+   border + entrance), but in a red accent and inline (form stays visible so the
+   user can correct + resubmit). role="alert" gives it aria-live=assertive. */
+.contact__alert {
+  display: flex;
+  gap: 0.85rem;
+  align-items: flex-start;
+  background: color-mix(in srgb, #e5484d 10%, transparent);
+  border: 1px solid color-mix(in srgb, #e5484d 45%, transparent);
+  border-radius: var(--radius-sm);
+  padding: 0.9rem 1rem;
+  margin: 0 0 0.75rem;
+  animation: alert-in 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.contact__alert-icon {
+  flex: none;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: #e5484d;
+  background: color-mix(in srgb, #e5484d 15%, transparent);
+}
+.contact__alert-icon svg {
+  width: 18px;
+  height: 18px;
+}
+.contact__alert-msg {
+  margin: 0;
   font-size: 0.9rem;
-  margin: 0 0 0.5rem;
+  line-height: 1.5;
+  color: var(--ink);
+}
+@keyframes alert-in {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: none; }
 }
 
 /* Success */
@@ -140,6 +173,7 @@
 @media (prefers-reduced-motion: reduce) {
   .contact__done { animation: none; }
   .contact__check { animation: none; stroke-dashoffset: 0; }
+  .contact__alert { animation: none; }
 }
 
 .contact__soon {
