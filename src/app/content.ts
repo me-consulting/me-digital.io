@@ -186,7 +186,9 @@ export const site = {
   ] as Faq[],
 
   // ── Rechtliches: Impressum + Datenschutzerklärung ───────────────────────────
-  // Pflichtangaben nach § 5 TMG (Impressum) bzw. § 14 TMG / DSGVO (Datenschutz).
+  // Pflichtangaben nach § 5 DDG (Impressum) bzw. DSGVO (Datenschutz).
+  // TMG wurde am 14.05.2024 durch das Digitale-Dienste-Gesetz (DDG) aufgehoben —
+  // daher keine „§ X TMG"-Angaben mehr (alte Zitate sind Abmahnfallen).
   // NICHTS in diesem Block ist Rechtsberatung — vor Veröffentlichung prüfen lassen.
   // Platzhalter [ … ] bitte ersetzen.
   legal: {
@@ -211,7 +213,7 @@ export const site = {
       },
       {
         heading: 'Erhebung und Verarbeitung',
-        text: 'Beim Aufruf der Website erfasst der Webserver automatisch Informationen (Server-Logfiles): IP-Adresse, Datum/Uhrzeit des Zugriffs, aufgerufene Seite, verwendeter Browser und Betriebssystem, Referring-URL. Die Übertragung erfolgt über eine SSL-/TLS-verschlüsselte Verbindung (HTTPS). Rechtsgrundlage ist § 15 Abs. 1 TDG bzw. Art. 6 Abs. 1 lit. f DSGVO (Bereitstellung der Website, Sicherheit und Stabilität).',
+        text: 'Beim Aufruf der Website erfasst der Webserver automatisch Informationen (Server-Logfiles): IP-Adresse, Datum/Uhrzeit des Zugriffs, aufgerufene Seite, verwendeter Browser und Betriebssystem, Referring-URL. Die Übertragung erfolgt über eine SSL-/TLS-verschlüsselte Verbindung (HTTPS). Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (Bereitstellung der Website, Sicherheit und Stabilität).',
       },
       {
         heading: 'Kontaktformular',
@@ -228,7 +230,7 @@ export const site = {
       },
       {
         heading: 'Datenübermittlung in die USA / andere Drittländer',
-        text: 'Unser Hosting-Anbieter (GitHub) und, sobald das Kontaktformular aktiv ist, unser Formular-Anbieter (Web3Forms) sind in den USA ansässig. Personenbezogene Daten können daher in die Vereinigten Staaten oder ein anderes Land außerhalb der EU/EEA übermittelt werden. Die Übertragung stützt sich auf den Angemessenheitsbeschluss der EU zum „EU-U.S. Data Privacy Framework" bzw. auf die EU-Standardvertragsklauseln (Art. 46 DSGVO). Die einschlägigen Unterlagen können über die Europäische Kommission abgerufen werden.',
+        text: 'Unser Hosting-Anbieter (GitHub, USA) und, sobald das Kontaktformular aktiv ist, unser Formular-Anbieter (Web3Forms, Sitz Indien/USA) verarbeiten personenbezogene Daten außerhalb der EU/EEA. Personenbezogene Daten können daher in die Vereinigten Staaten, nach Indien oder in ein anderes Land außerhalb der EU/EEA übermittelt werden. Die Übertragung stützt sich auf die EU-Standardvertragsklauseln (Art. 46 DSGVO); für GitHub liegt zusätzlich der Angemessenheitsbeschluss der EU zum „EU-U.S. Data Privacy Framework" vor. Web3Forms verarbeitet die Daten als Auftragsverarbeiter gemäß Art. 28 DSGVO auf Basis seines Datenverarbeitungsvertrags (DPA). Die einschlägigen Unterlagen (Standardvertragsklauseln) können über die Europäische Kommission abgerufen werden.',
       },
       {
         heading: 'Ihre Rechte',
@@ -243,7 +245,7 @@ export const site = {
     impressumClauses: [
       {
         heading: 'Haftungsausschluss',
-        text: 'Die Inhalte unserer Seiten wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte können wir jedoch keine Gewähr übernehmen. Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen. Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt. Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung möglich. Bei Bekanntwerden von entsprechenden Rechtsverletzungen werden wir diese Inhalte umgehend entfernen.',
+        text: 'Die Inhalte unserer Seiten wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte können wir jedoch keine Gewähr übernehmen. Als Diensteanbieter sind wir für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Wir sind jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen. Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt. Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung möglich. Bei Bekanntwerden von entsprechenden Rechtsverletzungen werden wir diese Inhalte umgehend entfernen.',
       },
       {
         heading: 'Haftungsausschluss für Links',

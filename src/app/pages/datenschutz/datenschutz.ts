@@ -19,7 +19,7 @@ import { site } from '../../content';
         }
 
         <p class="legal__note">
-          Angaben gemäß DSGVO und § 14 TMG.
+          Angaben gemäß DSGVO.
         </p>
       </div>
     </section>

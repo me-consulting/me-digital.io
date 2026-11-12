@@ -40,18 +40,10 @@ import { site } from '../../content';
           </p>
         }
 
-        <p>
-          <strong>Streitbeilegung:</strong> Die Europäische Kommission stellt eine
-          Plattform zur Online-Streitbeilegung (OS) bereit:
-          <a
-            href="https://ec.europa.eu/consumers/odr/"
-            target="_blank"
-            rel="noopener noreferrer"
-            >https://ec.europa.eu/consumers/odr/</a
-          >. Wir sind nicht bereit und nicht verpflichtet, an einem
-          Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle
-          teilzunehmen.
-        </p>
+        <!-- Streitbeilegung / OS-Plattform bewusst entfernt: Die ODR-Verordnung
+             (EU 524/2013) wurde aufgehoben und die OS-Plattform der EU-Kommission
+             zum 20.07.2025 dauerhaft geschlossen. Eine tote Verlinkung ist eine
+             Abmahnfalle (irreführende Angabe). -->
 
         @for (clause of legal.impressumClauses; track clause.heading) {
           <section class="legal__block">
@@ -61,7 +53,7 @@ import { site } from '../../content';
         }
 
         <p class="legal__note">
-          Angaben gemäß § 12 TDG (früher § 5 TMG).
+          Angaben gemäß § 5 DDG.
         </p>
       </div>
     </section>
