@@ -9,8 +9,21 @@
   <meta name="theme-color" content="#0b1020">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
-<style>:root{--brand:#b8732e;--brand-2:#d98e3d;--accent-grad:linear-gradient(135deg, var(--brand), var(--brand-2));--bg:#f7f3ec;--bg-alt:#f1e8da;--surface:#ffffff;--ink:#1c1a17;--muted:#6b6157;--border:#e8dfd1;--dark:#171410;--font:"Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;--font-display:"Space Grotesk", "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;--radius:16px;--radius-sm:10px;--shadow:0 10px 30px -12px rgba(40, 30, 15, .14);--shadow-lg:0 24px 60px -20px rgba(40, 30, 15, .24);--maxw:1160px;--gap:1.5rem}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:var(--font);color:var(--ink);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased}</style><link rel="stylesheet" href="styles-7DJ3ML2Y.css" media="print" data-beasties-media="all"><noscript><link rel="stylesheet" href="styles-7DJ3ML2Y.css"></noscript></head>
+  <!-- Theme: set data-theme before first paint (no flash). Choice persists; falls
+       back to the OS colour scheme on first visit. -->
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('theme');
+        if (t !== 'light' && t !== 'dark') {
+          t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        }
+        document.documentElement.setAttribute('data-theme', t);
+      } catch (e) {}
+    })();
+  </script>
+<style>:root{--brand:#b8732e;--brand-2:#d98e3d;--accent-grad:linear-gradient(135deg, var(--brand), var(--brand-2));--bg:#f7f3ec;--bg-alt:#f1e8da;--surface:#ffffff;--ink:#1c1a17;--muted:#6b6157;--border:#e8dfd1;--dark:#171410;--font:"Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;--font-display:"Space Grotesk", "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;--radius:16px;--radius-sm:10px;--shadow:0 10px 30px -12px rgba(40, 30, 15, .14);--shadow-lg:0 24px 60px -20px rgba(40, 30, 15, .24);--maxw:1160px;--gap:1.5rem}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:var(--font);color:var(--ink);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased}</style><link rel="stylesheet" href="styles-CFZTHDE7.css" media="print" data-beasties-media="all"><noscript><link rel="stylesheet" href="styles-CFZTHDE7.css"></noscript></head>
 <body>
   <app-root></app-root>
-<script src="main-FSNN7PM2.js" type="module"></script><script>document.querySelectorAll('link[data-beasties-media]').forEach(function(l){l.media=l.getAttribute('data-beasties-media');l.removeAttribute('data-beasties-media')})</script></body>
+<script src="main-OGCVIRDG.js" type="module"></script><script>document.querySelectorAll('link[data-beasties-media]').forEach(function(l){l.media=l.getAttribute('data-beasties-media');l.removeAttribute('data-beasties-media')})</script></body>
 </html>
