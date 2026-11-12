@@ -1,4 +1,9 @@
 :host {
+  /* Full-width custom element. WebKit/Safari collapses an inline :host
+     (shrink-to-fit); Chromium happens to stretch a sticky one. Every other
+     component in this app declares display:block here too — nav was the only
+     exception, which left the mobile menu panel a few px wide on iPhone. */
+  display: block;
   position: sticky;
   top: 0;
   z-index: 50;
