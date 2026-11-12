@@ -75,6 +75,10 @@ GitHub Pages re-publishes `main` in ~1–2 minutes.
 > plain `git push` fails with `ECONNREFUSED`. `deploy.sh` already probes the live socket;
 > for manual pushes use `VSCODE_GIT_IPC_HANDLE=<live-sock> git push …`.
 
+> ⚠️ Run `deploy.sh` while on **`develop`**. Its `git commit` lands on whatever branch HEAD
+> is on — if you run it on `main`, the commit strands on `main` and the `push origin develop`
+> is a no-op, leaving `develop` behind.
+
 > ⚠️ Do **not** delete `docs/` by hand (e.g. `rm -rf docs`) and re-copy only the build
 > output — that removes `CNAME` / `404.html` and the custom domain drops to a 404.
 > `deploy.sh` recreates those files on every run, so just run it.
@@ -91,6 +95,24 @@ All text lives in `src/app/content.ts`. Current toggles:
   spam and a `submit` handler that `preventDefault()`s so the page never reloads. Set to
   `false` to hide the form again.
 - `site.socials.linkedin` — `null` → the LinkedIn link is hidden.
+
+## Theme (dark mode)
+
+Light/dark toggle (sun/moon, top-right of the nav). Token-based, FOUC-free:
+
+- `src/styles.scss` — light tokens in `:root`, dark override block in
+  `:root[data-theme='dark']` (warm anthracite + brightened copper for contrast).
+  Only surface/ink/border/shadow tokens flip; `--accent-grad` re-resolves automatically.
+- `src/index.html` — an inline `<script>` in `<head>` sets `data-theme` *before first
+  paint* from `localStorage['theme']` → else the OS `prefers-color-scheme`, so there is
+  no flash of the wrong theme.
+- The nav toggle (`nav.ts` `toggleTheme()`) flips the `<html data-theme>` attribute and
+  persists the choice to `localStorage`; a `@media (prefers-color-scheme: dark)` block
+  mirrors the dark tokens for the no-JS case.
+
+Pitfall: an element with a *fixed* light background (e.g. `.btn--light`, `background:#fff`)
+must use a *fixed* dark text color, NOT `var(--ink)` — that token flips to off-white in
+dark mode, so the text goes invisible (white-on-white).
 
 ## Legal
 

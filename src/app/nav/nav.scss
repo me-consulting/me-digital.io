@@ -129,3 +129,35 @@
     justify-content: center;
   }
 }
+
+/* ---------- Theme toggle (always visible; moon in light, sun in dark mode) ---------- */
+.nav__toggle {
+  display: inline-grid;
+  place-items: center;
+  flex: none;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--surface);
+  color: var(--ink);
+  cursor: pointer;
+  transition: color 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+}
+.nav__toggle:hover {
+  border-color: var(--brand);
+  color: var(--brand);
+}
+.nav__toggle-icon {
+  width: 20px;
+  height: 20px;
+}
+.nav__toggle-icon--sun {
+  display: none;
+}
+.nav__toggle.is-dark .nav__toggle-icon--sun {
+  display: block;
+}
+.nav__toggle.is-dark .nav__toggle-icon--moon {
+  display: none;
+}

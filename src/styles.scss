@@ -50,6 +50,41 @@
   --gap: 1.5rem;
 }
 
+/* ---------- Dark theme (warm anthracite) ----------
+   Toggle sets <html data-theme="dark"> (see index.html + nav toggle).
+   Only the surface/ink/border tokens flip; brand copper is brightened a touch
+   for legibility on the dark base. --accent-grad re-resolves automatically. */
+:root[data-theme='dark'] {
+  --bg: #16130e;          /* warm near-black base   */
+  --bg-alt: #1e1a13;      /* section band            */
+  --surface: #211c15;     /* elevated cards          */
+  --ink: #f2ece1;         /* warm off-white text     */
+  --muted: #a79c8b;       /* warm gray secondary     */
+  --border: #332c22;      /* subtle warm border      */
+  --dark: #0e0c08;        /* footer / CTA card, deeper than --bg */
+  --brand: #d98e3d;       /* brighter copper for contrast */
+  --brand-2: #eaa963;
+  --shadow: 0 10px 30px -12px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 24px 60px -20px rgba(0, 0, 0, 0.65);
+}
+
+/* Respect an explicit OS colour-scheme change when the user hasn't chosen one. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --bg: #16130e;
+    --bg-alt: #1e1a13;
+    --surface: #211c15;
+    --ink: #f2ece1;
+    --muted: #a79c8b;
+    --border: #332c22;
+    --dark: #0e0c08;
+    --brand: #d98e3d;
+    --brand-2: #eaa963;
+    --shadow: 0 10px 30px -12px rgba(0, 0, 0, 0.55);
+    --shadow-lg: 0 24px 60px -20px rgba(0, 0, 0, 0.65);
+  }
+}
+
 * {
   box-sizing: border-box;
 }
@@ -175,7 +210,9 @@ img {
 }
 .btn--light {
   background: #fff;
-  color: var(--ink);
+  /* Fixed dark text: this button is always on a white background, so it must NOT
+     use var(--ink) (which becomes off-white in dark mode -> invisible white-on-white). */
+  color: #1c1a17;
 }
 
 /* Grids */
