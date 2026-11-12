@@ -67,13 +67,25 @@ export class Contact {
     // Kein botcheck-Wert nötig: Web3Forms prüft Spam zusätzlich serverseitig.
 
     try {
-      const res = await fetch(site.form.endpoint, { method: 'POST', body });
-      const data = (await res.json().catch(() => null)) as
-        | { success?: boolean | string; message?: string; statusCode?: number; error?: string }
-        | null;
-      // Web3Forms signalisiert Erfolg per `success: true` (nicht `status`).
-      // 200 + success -> grüne Dankeskarte; sonst deutsche Fehlermeldung.
-      if (res.ok && (data?.success === true || data?.success === 'true')) {
+      // redirect:'manual' -> wir sehen das 303 selbst (Web3Forms leitet beim Standard-Erfolg
+      // an /submit/success; der Mail-Versand ist bereits erfolgt).
+      const res = await fetch(site.form.endpoint, { method: 'POST', body, redirect: 'manual' });
+      const data: {
+        success?: boolean | string;
+        message?: string;
+        statusCode?: number;
+        error?: string;
+        body?: { success?: boolean | string; message?: string };
+      } | null = res.status === 303 ? null : await res.json().catch(() => null);
+      // Web3Forms: 303 -> /submit/success = geliefert (Standard); 200 + {success:true} = geliefert.
+      const loc = res.headers.get('location') || '';
+      const ok =
+        res.status === 303 ||
+        /\/submit\/success/.test(loc) ||
+        (res.status === 200 &&
+          (data?.success === true || data?.success === 'true' || data?.body?.success === true));
+      console.log('[contact] Web3Forms:', res.status, 'loc:', loc, JSON.stringify(data));
+      if (ok) {
         // Vorname vor dem Zuruecksetzen sichern -> persoenliche Begruesung.
         this.sentName.set(this.name().trim().split(/\s+/)[0]);
         this.sent.set(true);
@@ -83,8 +95,8 @@ export class Contact {
         this.message.set('');
       } else {
         // Niemals den rohen (englischen) Web3Forms-Text anzeigen — immer auf Deutsch.
-        const raw = data?.message || data?.error;
-        this.error.set(this.deError(data?.statusCode ? String(data.statusCode) : undefined, raw));
+        const raw = data?.message || data?.body?.message || data?.error;
+        this.error.set(this.deError(data?.statusCode ? String(data.statusCode) : String(res.status), raw));
       }
     } catch {
       console.error('[contact] Netzwerkfehler beim Versand an Web3Forms');
