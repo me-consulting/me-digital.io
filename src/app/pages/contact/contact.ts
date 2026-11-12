@@ -78,15 +78,30 @@ export class Contact {
         this.topic.set('Allgemein');
         this.message.set('');
       } else {
-        this.error.set(
-          data?.message ||
-            'Die Nachricht konnte leider nicht gesendet werden. Bitte versuchen Sie es später erneut.',
-        );
+        // Niemals den rohen (englischen) Web3Forms-Text anzeigen — immer auf Deutsch.
+        this.error.set(this.deError(data?.status, data?.message));
       }
     } catch {
-      this.error.set('Etwas ist schiefgelaufen (Netzwerk). Bitte versuchen Sie es später erneut.');
+      console.error('[contact] Netzwerkfehler beim Versand an Web3Forms');
+      this.error.set(this.deError('network'));
     } finally {
       this.sending.set(false);
     }
+  }
+
+  // Web3Forms antwortet oft auf Englisch. Der Nutzer sieht immer eine deutsche
+  // Meldung; die Rohantwort landet nur in der Console (Debugging, keine Exposition).
+  private deError(status?: string, raw?: string): string {
+    const key = ((raw || '') + ' ' + (status || '')).toLowerCase();
+    if (raw) {
+      console.error('[contact] Web3Forms-Antwort:', status, raw);
+    }
+    if (/verif|verify|confirm|bestätig/i.test(key)) {
+      return 'Bitte bestätigen Sie zuerst Ihre E-Mail-Adresse im Web3Forms-Dashboard — danach senden Sie die Nachricht erneut.';
+    }
+    if (/invalid|expired|access.?key|unauthorized|forbidden|not allowed|pro plan|403|401/i.test(key)) {
+      return 'Der Versand konnte nicht abgeschlossen werden. Bitte schreiben Sie uns direkt an ' + this.site.email + '.';
+    }
+    return 'Die Nachricht konnte leider nicht gesendet werden. Bitte versuchen Sie es später erneut — oder schreiben Sie uns direkt an ' + this.site.email + '.';
   }
 }
