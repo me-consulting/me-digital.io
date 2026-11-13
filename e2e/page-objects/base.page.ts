@@ -10,6 +10,7 @@ export abstract class BasePage {
 
   protected abstract readonly path: string;
   protected abstract readonly h1Text: string;
+  protected abstract readonly title: string;
 
   protected constructor(protected readonly page: Page) {
     this.nav = new Nav(page);
@@ -22,6 +23,11 @@ export abstract class BasePage {
 
   async assertRenders(): Promise<void> {
     await expect(this.h1).toContainText(this.h1Text);
+  }
+
+  /** The route sets a distinct document <title> (SEO) via the router title config. */
+  async assertTitle(): Promise<void> {
+    await expect(this.page).toHaveTitle(this.title);
   }
 
   /** Load the page and assert it renders its heading. */

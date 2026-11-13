@@ -23,6 +23,14 @@ export class Site {
     for (const { make } of Site.routes) await make(page).assert();
   }
 
+  static async assertAllTitles(page: Page): Promise<void> {
+    for (const { make } of Site.routes) {
+      const target = make(page);
+      await target.goto();
+      await target.assertTitle();
+    }
+  }
+
   static async assertNoConsoleErrors(page: Page): Promise<void> {
     const errors: string[] = [];
     page.on('console', (m) => {

@@ -7,6 +7,7 @@ import { BasePage } from './base.page';
 export class ImpressumPage extends BasePage {
   protected readonly path = '/impressum';
   protected readonly h1Text = 'Impressum';
+  protected readonly title = 'Impressum — ME Digital';
   private readonly legal: Locator;
   constructor(page: Page) {
     super(page);
