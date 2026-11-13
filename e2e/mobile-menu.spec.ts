@@ -1,4 +1,4 @@
-import { expect, test } from '@playwright/test';
+import { test } from '@playwright/test';
 import { HomePage } from './page-objects/home.page';
 
 // Regression guard for the iPhone nav bug: WebKit collapsed the inline :host to a
@@ -10,13 +10,5 @@ import { HomePage } from './page-objects/home.page';
 test('mobile menu: burger opens nav, links visible, host full-width', async ({
   page,
 }) => {
-  await page.setViewportSize({ width: 390, height: 844 });
-  const home = new HomePage(page);
-  await home.goto();
-
-  await expect(home.nav.burger).toBeVisible();
-  await home.nav.openMenuIfNeeded();
-  await expect(home.nav.menu).toBeVisible();
-  await expect(home.nav.link('Leistungen')).toBeVisible();
-  expect(await home.nav.hostWidth()).toBeGreaterThan(300);
+  await new HomePage(page).assertMobileMenuOpens();
 });

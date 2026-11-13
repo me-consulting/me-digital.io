@@ -7,4 +7,11 @@ export class HomePage extends BasePage {
   constructor(page: Page) {
     super(page);
   }
+
+  /** Phone viewport + load home + assert the burger menu behavior. */
+  async assertMobileMenuOpens(): Promise<void> {
+    await this.page.setViewportSize({ width: 390, height: 844 });
+    await this.goto();
+    await this.nav.assertMobileMenuOpens();
+  }
 }

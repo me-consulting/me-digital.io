@@ -3,6 +3,7 @@ import { BasePage } from './base.page';
 
 // Datenschutzerklärung: legal basis (Art. 6 Abs. 1 lit. f) + international-transfer
 // basis (SCC Art. 46) present; no repealed TMG/TDG citations.
+// assert() = render the heading (super) + check the legal body.
 export class DatenschutzPage extends BasePage {
   protected readonly path = '/datenschutz';
   protected readonly h1Text = 'Datenschutzerklärung';
@@ -18,5 +19,10 @@ export class DatenschutzPage extends BasePage {
     expect(text).toMatch(/Standardvertragsklauseln|Art\.?\s?46/i);
     expect(text).not.toMatch(/§\s?\d+\s?TMG/i);
     expect(text).not.toMatch(/\bTDG\b/i);
+  }
+
+  async assert(): Promise<void> {
+    await super.assert();
+    await this.assertLegal();
   }
 }

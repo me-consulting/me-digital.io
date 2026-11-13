@@ -1,8 +1,9 @@
-import { Locator, Page } from '@playwright/test';
+import { expect, Locator, Page } from '@playwright/test';
 
-// Component object for the cross-cutting nav (present on every route). Encapsulates
-// the burger/theme-toggle interactions + the "scope links to the nav" rule that
-// avoids the 4-element strict-mode clash (nav link + 2 CTAs + footer link).
+// Component object for the cross-cutting nav (on every route). Encapsulates the
+// burger/theme interactions + the "scope links to the nav" rule (avoids the 4-elem
+// strict-mode clash: nav link + 2 CTAs + footer link). Specs call the high-level
+// assert* methods; they hold no raw locators.
 export class Nav {
   readonly burger: Locator;
   readonly menu: Locator;
@@ -10,6 +11,13 @@ export class Nav {
   private readonly links: Locator;
   private readonly themeToggle: Locator;
   private readonly page: Page;
+
+  // label -> expected route: the nav's routing contract (data, not test logic).
+  private static readonly ROUTES: [string, string][] = [
+    ['Leistungen', '/services'],
+    ['Über uns', '/about'],
+    ['Kontakt', '/contact'],
+  ];
 
   constructor(page: Page) {
     this.page = page;
@@ -32,15 +40,39 @@ export class Nav {
     if (await this.burger.isVisible()) await this.burger.click();
   }
 
-  async toggleTheme(): Promise<void> {
+  /** Current theme via a locator attribute read — no document. reach-in. */
+  private async themeState(): Promise<string | null> {
+    return this.page.locator('html').getAttribute('data-theme');
+  }
+
+  /** Each nav label routes to its expected path (mobile + desktop safe). */
+  async assertNavRoutes(): Promise<void> {
+    for (const [label, path] of Nav.ROUTES) {
+      await this.page.goto('/'); // menu may auto-close on a link click
+      await this.openMenuIfNeeded();
+      await this.link(label).click();
+      await expect(this.page).toHaveURL(new RegExp(path + '$'));
+    }
+  }
+
+  /** Toggling the theme flips data-theme and the choice survives a reload. */
+  async assertThemeTogglePersists(): Promise<void> {
+    await this.page.goto('/');
+    const before = await this.themeState();
     await this.themeToggle.click();
+    const after = await this.themeState();
+    expect(after).not.toEqual(before);
+    await this.page.reload();
+    expect(await this.themeState()).toEqual(after);
   }
 
-  async themeState(): Promise<string> {
-    return this.page.evaluate(() => document.documentElement.dataset['theme']);
-  }
-
-  async hostWidth(): Promise<number> {
-    return this.host.evaluate((el) => el.getBoundingClientRect().width);
+  /** Burger shows, opens the menu, a nav link is visible, host spans the viewport. */
+  async assertMobileMenuOpens(): Promise<void> {
+    await expect(this.burger).toBeVisible();
+    await this.openMenuIfNeeded();
+    await expect(this.menu).toBeVisible();
+    await expect(this.link('Leistungen')).toBeVisible();
+    const box = await this.host.boundingBox();
+    expect(box?.width).toBeGreaterThan(300);
   }
 }

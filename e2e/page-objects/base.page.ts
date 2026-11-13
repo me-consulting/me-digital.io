@@ -3,7 +3,7 @@ import { Nav } from './nav.page';
 
 // The nav is on every route (sticky <app-nav>); every route also has exactly one
 // <h1>. BasePage owns that shared shape; each route subclass supplies its path +
-// expected heading text and asserts rendering.
+// expected heading text. assert() is the common "page works" check (load + render).
 export abstract class BasePage {
   readonly nav: Nav;
   protected readonly h1: Locator;
@@ -22,5 +22,11 @@ export abstract class BasePage {
 
   async assertRenders(): Promise<void> {
     await expect(this.h1).toContainText(this.h1Text);
+  }
+
+  /** Load the page and assert it renders its heading. */
+  async assert(): Promise<void> {
+    await this.goto();
+    await this.assertRenders();
   }
 }

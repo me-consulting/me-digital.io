@@ -3,6 +3,7 @@ import { BasePage } from './base.page';
 
 // Impressum: the `.legal` body must carry the required Pflichtangaben and must NOT
 // carry repealed/abmahnung-risky citations (TMG/TDG, the removed EU-ODR link).
+// assert() = render the heading (super) + check the legal body.
 export class ImpressumPage extends BasePage {
   protected readonly path = '/impressum';
   protected readonly h1Text = 'Impressum';
@@ -19,5 +20,10 @@ export class ImpressumPage extends BasePage {
     expect(text).not.toMatch(/ec\.europa\.eu\/consumers\/odr/i);
     expect(text).not.toMatch(/§\s?\d+\s?TMG/i);
     expect(text).not.toMatch(/\bTDG\b/i);
+  }
+
+  async assert(): Promise<void> {
+    await super.assert();
+    await this.assertLegal();
   }
 }
