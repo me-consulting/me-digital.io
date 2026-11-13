@@ -209,7 +209,7 @@ export const site = {
     datenschutz: [
       {
         heading: 'Verantwortlicher',
-        text: 'Verantwortlich für die Datenverarbeitung auf dieser Website ist Mario Ernst, Madenstr. 29, 70619 Stuttgart (Kontakt: +49 711 12893038).',
+        text: 'Verantwortlich für die Datenverarbeitung auf dieser Website ist Mario Ernst, Madenstr. 29, 70619 Stuttgart. Kontakt: Telefon +49 711 12893038, E-Mail mail@me-digital.io.',
       },
       {
         heading: 'Erhebung und Verarbeitung',
@@ -230,7 +230,7 @@ export const site = {
       },
       {
         heading: 'Datenübermittlung in die USA / andere Drittländer',
-        text: 'Unser Hosting-Anbieter (GitHub, USA) und, sobald das Kontaktformular aktiv ist, unser Formular-Anbieter (Web3Forms, Sitz Indien/USA) verarbeiten personenbezogene Daten außerhalb der EU/EEA. Personenbezogene Daten können daher in die Vereinigten Staaten, nach Indien oder in ein anderes Land außerhalb der EU/EEA übermittelt werden. Die Übertragung stützt sich auf die EU-Standardvertragsklauseln (Art. 46 DSGVO); für GitHub liegt zusätzlich der Angemessenheitsbeschluss der EU zum „EU-U.S. Data Privacy Framework" vor. Web3Forms verarbeitet die Daten als Auftragsverarbeiter gemäß Art. 28 DSGVO auf Basis seines Datenverarbeitungsvertrags (DPA). Die einschlägigen Unterlagen (Standardvertragsklauseln) können über die Europäische Kommission abgerufen werden.',
+        text: 'Unser Hosting-Anbieter (GitHub, USA) und, sobald das Kontaktformular aktiv ist, unser Formular-Anbieter (Web3Forms, Sitz Indien/USA) verarbeiten personenbezogene Daten außerhalb der EU/EEA. Personenbezogene Daten können daher in die Vereinigten Staaten, nach Indien oder in ein anderes Land außerhalb der EU/EEA übermittelt werden. Die Übertragung stützt sich auf die EU-Standardvertragsklauseln (Art. 46 DSGVO); für GitHub liegt zusätzlich der Angemessenheitsbeschluss der EU zum „EU-U.S. Data Privacy Framework" vor. Web3Forms (Betreiber: Web3Creative, Indien) verarbeitet die Daten als Auftragsverarbeiter gemäß Art. 28 DSGVO auf Basis seines Datenverarbeitungsvertrags (DPA: https://www.web3forms.com/dpa) und leitet die Formulareingaben an uns weiter, ohne sie über das für den Service erforderliche Maß hinaus zu speichern (Server-Logs werden nach dessen Angaben regelmäßig gelöscht; https://www.web3forms.com/privacy). Die einschlägigen Standardvertragsklauseln (Durchführungsbeschluss (EU) 2021/914) können über die Europäische Kommission abgerufen werden.',
       },
       {
         heading: 'Ihre Rechte',
