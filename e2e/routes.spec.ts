@@ -1,25 +1,34 @@
-import { test, expect } from '@playwright/test';
+import { expect, Page, test } from '@playwright/test';
+import { AboutPage } from './page-objects/about.page';
+import { ContactPage } from './page-objects/contact.page';
+import { DatenschutzPage } from './page-objects/datenschutz.page';
+import { HomePage } from './page-objects/home.page';
+import { ImpressumPage } from './page-objects/impressum.page';
+import { ServicesPage } from './page-objects/services.page';
+import { BasePage } from './page-objects/base.page';
 
-// Smoke: every route renders its heading + the catch-all (**) falls back to home.
-const pages: { path: string; h1: string }[] = [
-  { path: '/', h1: 'Software, die hält' },
-  { path: '/services', h1: 'Leistungen, passgenau für Sie' },
-  { path: '/about', h1: 'Wer wir sind' },
-  { path: '/contact', h1: 'Sprechen Sie mit uns' },
-  { path: '/impressum', h1: 'Impressum' },
-  { path: '/datenschutz', h1: 'Datenschutzerklärung' },
+// One page object per route; the registry is the single source of truth for
+// "which routes exist" + what each one's heading is.
+const routes: { path: string; make: (page: Page) => BasePage }[] = [
+  { path: '/', make: (p) => new HomePage(p) },
+  { path: '/services', make: (p) => new ServicesPage(p) },
+  { path: '/about', make: (p) => new AboutPage(p) },
+  { path: '/contact', make: (p) => new ContactPage(p) },
+  { path: '/impressum', make: (p) => new ImpressumPage(p) },
+  { path: '/datenschutz', make: (p) => new DatenschutzPage(p) },
 ];
 
-for (const { path, h1 } of pages) {
+for (const { path, make } of routes) {
   test(`${path} renders its heading`, async ({ page }) => {
-    await page.goto(path);
-    await expect(page.locator('h1')).toContainText(h1);
+    const target = make(page);
+    await target.goto();
+    await target.assertRenders();
   });
 }
 
 test('unknown route falls back to home (catch-all **)', async ({ page }) => {
   await page.goto('/this-route-does-not-exist-xyz');
-  await expect(page.locator('h1')).toContainText('Software, die hält');
+  await new HomePage(page).assertRenders();
 });
 
 test('no console errors on any route', async ({ page }) => {
@@ -28,6 +37,6 @@ test('no console errors on any route', async ({ page }) => {
     if (m.type() === 'error') errors.push(m.text());
   });
   page.on('pageerror', (e) => errors.push(String(e)));
-  for (const { path } of pages) await page.goto(path);
+  for (const { path } of routes) await page.goto(path);
   expect(errors).toEqual([]);
 });
