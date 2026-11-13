@@ -33,6 +33,14 @@ describe('legal — Impressum (§ 5 DDG)', () => {
     expect(all).not.toMatch(/\bTDG\b/i);
     expect(all).not.toMatch(/ec\.europa\.eu\/consumers\/odr/i);
   });
+
+  it('benennt „Inhaltlich Verantwortlicher" gemäß § 18 Abs. 2 MStV (eRecht24-Muster)', () => {
+    const h = site.legal.impressumClauses
+      .map((c: { heading: string; text: string }) => `${c.heading}: ${c.text}`)
+      .join(' | ');
+    expect(h).toContain('Inhaltlich Verantwortlicher');
+    expect(h).toMatch(/§\s?18\s?Abs\.?\s?2\s?MStV/i);
+  });
 });
 
 describe('legal — Datenschutz (DSGVO)', () => {

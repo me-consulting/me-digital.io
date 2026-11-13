@@ -241,8 +241,15 @@ export const site = {
         text: 'Sie haben das Recht, sich bei einer Aufsichtsbehörde für den Datenschutz zu beschweren — z. B. beim Datenschutzbeauftragten des Landes, in dem Sie Ihren Wohnsitz oder Ihren gewöhnlichen Aufenthaltsort haben.',
       },
     ] as LegalBlock[],
-    // Pflicht-/Standardangaben im Impressum: Haftung, Links, Urheberrecht.
+    // Pflicht-/Standardangaben im Impressum:
+    //  § 18 Abs. 2 MStV (Inhaltlich Verantwortlicher) + Haftung, Links, Urheberrecht.
+    //  Quelle: eRecht24 Muster-Impressum „Gewerbetreibende (ohne Handelsregistereintrag)".
     impressumClauses: [
+      {
+        heading: 'Inhaltlich Verantwortlicher',
+        text: 'Inhaltlich Verantwortlicher gemäß § 18 Abs. 2 MStV: Mario Ernst, ' +
+          'Madenstr. 29, 70619 Stuttgart (Kontakt s. o.).',
+      },
       {
         heading: 'Haftungsausschluss',
         text: 'Die Inhalte unserer Seiten wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte können wir jedoch keine Gewähr übernehmen. Als Diensteanbieter sind wir für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Wir sind jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen. Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt. Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung möglich. Bei Bekanntwerden von entsprechenden Rechtsverletzungen werden wir diese Inhalte umgehend entfernen.',
