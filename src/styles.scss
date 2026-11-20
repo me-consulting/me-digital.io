@@ -370,6 +370,30 @@ img {
   color: var(--btn-light-fg);
 }
 
+/* ---------- Scroll reveal (see src/app/reveal/reveal.ts) ---------- */
+/* Visible by default; the [reveal] directive opts elements into a hidden→shown
+   transition. prefers-reduced-motion keeps them visible (handled in the directive
+   and reinforced here as a belt-and-braces fallback). */
+.reveal--armed {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1);
+  will-change: opacity, transform;
+}
+.reveal--shown {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal--armed {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
 /* Grids */
 .grid {
   display: grid;
