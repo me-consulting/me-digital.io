@@ -35,6 +35,27 @@
   --border: #e8dfd1;
   --dark: #171410;         /* warm dark/footer */
 
+  /* On-dark / on-accent — THEME-INVARIANT. These are read on --dark surfaces and on
+     the accent gradient, which exist in every theme, so they are defined once here.
+     A theme can override any of them when its --dark / gradient differs (see the
+     [data-theme='gta'] block, which flips --on-accent to dark for the bright neon). */
+  --on-accent: #ffffff;                        /* text/icons on the accent gradient */
+  --on-accent-soft: rgba(255, 255, 255, 0.9); /* soft text on the accent gradient */
+  --on-dark: #ffffff;                          /* strong text on --dark surfaces */
+  --on-dark-body: #cbd5e1;                     /* body text on --dark (footer)     */
+  --on-dark-subtle: #94a3b8;                   /* muted text on --dark             */
+  --on-dark-soft: rgba(255, 255, 255, 0.85);  /* soft text on --dark              */
+  --on-dark-border: rgba(255, 255, 255, 0.08);/* hairline on --dark               */
+  --on-dark-chip: rgba(255, 255, 255, 0.14);  /* translucent icon chip on --dark  */
+
+  /* Fixed light button: always a white surface + dark text in every theme. Must NOT
+     track --ink, which flips to off-white in dark themes (would go invisible). */
+  --btn-light-bg: #ffffff;
+  --btn-light-fg: #1c1a17;
+
+  /* Semantic accent */
+  --danger: #e5484d;                          /* form-error red */
+
   /* Type */
   --font: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica,
     Arial, sans-serif;
@@ -46,6 +67,12 @@
   --radius-sm: 10px;
   --shadow: 0 10px 30px -12px rgba(40, 30, 15, 0.14);
   --shadow-lg: 0 24px 60px -20px rgba(40, 30, 15, 0.24);
+  /* Primary-button glow — defined ONCE here and inherited by every theme, so the
+     primary CTA is identical in light/dark/gta/gta-light. The colour tracks
+     --brand (right hue per theme) but the shape/strength is shared: one style,
+     no per-theme exceptions. Tune the value here; it applies everywhere. */
+  --btn-glow: 0 12px 28px -12px color-mix(in srgb, var(--brand) 32%, transparent);
+  --btn-glow-hover: 0 16px 34px -12px color-mix(in srgb, var(--brand) 42%, transparent);
   --maxw: 1160px;
   --gap: 1.5rem;
 }
@@ -55,6 +82,9 @@
    Only the surface/ink/border tokens flip; brand copper is brightened a touch
    for legibility on the dark base. --accent-grad re-resolves automatically. */
 :root[data-theme='dark'] {
+  /* Only the surface / ink / border / brand / shadow tokens flip here. The on-dark,
+     on-accent, fixed-button and --danger tokens are theme-invariant, so they are
+     inherited from :root (a footer/CTA is dark in both light and dark modes). */
   --bg: #16130e;          /* warm near-black base   */
   --bg-alt: #1e1a13;      /* section band            */
   --surface: #211c15;     /* elevated cards          */
@@ -83,6 +113,119 @@
     --shadow: 0 10px 30px -12px rgba(0, 0, 0, 0.55);
     --shadow-lg: 0 24px 60px -20px rgba(0, 0, 0, 0.65);
   }
+}
+
+/* ---------- GTA 6 / Vice City theme (modern, neon-on-dusk) ----------
+   Selected by <html data-theme="gta">. Original palette values inspired by the
+   "sunset Vice City" look (not Rockstar's assets): a near-black dusk base, a
+   magenta→orange→violet sunset gradient, and one teal signal accent. Placed
+   AFTER the prefers-color-scheme block so an explicit choice always wins. */
+:root[data-theme='gta'] {
+  /* Sunset gradient: hero magenta → sunset orange → night violet */
+  --brand: #ff4d8d;        /* hero magenta        */
+  --brand-2: #ff7a3d;      /* sunset orange       */
+  --accent-grad: linear-gradient(135deg, #ff4d8d, #ff7a3d 55%, #7b2ff7);
+
+  --bg: #0a0612;           /* near-black dusk base */
+  --bg-alt: #120a20;       /* deep violet band     */
+  --surface: #160b26;      /* deep panel violet    */
+  --ink: #f4ecff;          /* lavender white       */
+  --muted: #b3a6d4;        /* muted lavender       */
+  --border: #2a1b45;       /* violet hairline      */
+  --dark: #05030c;         /* footer, deeper than --bg */
+
+  /* Neon-on-dark: bright gradient needs DARK text to stay legible, and the
+     dark surfaces get lavender-tinted neutrals + magenta hairlines/chips. */
+  --on-accent: #1a0730;
+  --on-accent-soft: rgba(26, 7, 48, 0.85);
+  --on-dark: #ffffff;
+  --on-dark-body: #d8cdec;
+  --on-dark-subtle: #9a8bbf;
+  --on-dark-soft: rgba(244, 236, 255, 0.85);
+  --on-dark-border: rgba(255, 77, 141, 0.18);
+  --on-dark-chip: rgba(255, 77, 141, 0.14);
+
+  /* Neon glow shadows instead of the warm drop shadow */
+  --shadow: 0 10px 30px -12px rgba(255, 77, 141, 0.4);
+  --shadow-lg: 0 24px 60px -18px rgba(255, 122, 61, 0.5);
+
+  /* GTA-family flourishes, consumed via var() fallbacks elsewhere — so light/dark
+     stay pixel-identical (the fallbacks reproduce the original values). */
+  --neon: #00d18f;
+  /* Synthwave "digital horizon" grid — a retro/80s motif, kept as a faint texture
+     (not a busy Tron floor). Tune: --grid-line alpha (0 = grid off), --grid-size
+     (cell, in px). */
+  --grid-line: rgba(0, 209, 143, 0.07);
+  --grid-size: 76px;
+  --hero-grid:
+    repeating-linear-gradient(
+      90deg,
+      transparent 0 calc(var(--grid-size) - 1px),
+      var(--grid-line) calc(var(--grid-size) - 1px)
+    ),
+    repeating-linear-gradient(
+      0deg,
+      transparent 0 calc(var(--grid-size) - 1px),
+      var(--grid-line) calc(var(--grid-size) - 1px)
+    );
+  --hero-bg:
+    var(--hero-grid),
+    radial-gradient(120% 85% at 80% 0%, color-mix(in srgb, var(--brand) 30%, transparent), transparent),
+    radial-gradient(90% 70% at 12% 10%, color-mix(in srgb, var(--brand-2) 24%, transparent), transparent);
+  --heading-glow: 0 0 22px color-mix(in srgb, var(--brand) 45%, transparent);
+}
+
+/* ---------- GTA "day" variant (bright, sunlit) ----------
+   Same neon palette on a pale lavender base. Selected by
+   <html data-theme="gta-light">. Flourish tokens carry lighter opacities. */
+:root[data-theme='gta-light'] {
+  --brand: #e11d74;        /* strong magenta (readable on light) */
+  --brand-2: #f26a1b;      /* sunset orange */
+  --accent-grad: linear-gradient(135deg, #e11d74, #f26a1b 55%, #7b2ff7);
+
+  --bg: #f6f1fb;           /* pale lavender-white */
+  --bg-alt: #ece4f7;       /* section band */
+  --surface: #ffffff;
+  --ink: #231642;          /* deep violet-ink */
+  --muted: #6a5f86;        /* muted violet-gray */
+  --border: #e6dcf2;
+  --dark: #160a30;         /* footer / CTA card (deep violet, even in light) */
+
+  /* Bright gradient → dark text for legibility, same approach as the night variant */
+  --on-accent: #1a0730;
+  --on-accent-soft: rgba(26, 7, 48, 0.85);
+  --on-dark: #ffffff;
+  --on-dark-body: #ece1fb;
+  --on-dark-subtle: #b7a8e0;
+  --on-dark-soft: rgba(255, 255, 255, 0.85);
+  --on-dark-border: rgba(255, 255, 255, 0.12);
+  --on-dark-chip: rgba(255, 255, 255, 0.16);
+
+  --shadow: 0 10px 30px -12px rgba(123, 47, 247, 0.18);
+  --shadow-lg: 0 24px 60px -20px rgba(225, 29, 116, 0.28);
+
+  --neon: #00b894;
+  /* Very faint on the light base — texture, not a Tron floor. Alpha in --grid-line:
+     0 = grid off; --grid-size (px) = cell. */
+  --grid-line: rgba(0, 184, 148, 0.05);
+  --grid-size: 76px;
+  --hero-grid:
+    repeating-linear-gradient(
+      90deg,
+      transparent 0 calc(var(--grid-size) - 1px),
+      var(--grid-line) calc(var(--grid-size) - 1px)
+    ),
+    repeating-linear-gradient(
+      0deg,
+      transparent 0 calc(var(--grid-size) - 1px),
+      var(--grid-line) calc(var(--grid-size) - 1px)
+    );
+  /* Calmer wash: less neon on the pale base so the light variant stays "solid & clear" */
+  --hero-bg:
+    var(--hero-grid),
+    radial-gradient(120% 85% at 80% 0%, color-mix(in srgb, var(--brand) 15%, transparent), transparent),
+    radial-gradient(90% 70% at 12% 10%, color-mix(in srgb, var(--brand-2) 11%, transparent), transparent);
+  --heading-glow: none; /* light base: skip the neon text-glow, it would muddy */
 }
 
 * {
@@ -167,6 +310,7 @@ img {
 .section-title {
   font-size: clamp(1.75rem, 3.5vw, 2.5rem);
   margin-bottom: 0.5rem;
+  text-shadow: var(--heading-glow, none);
 }
 .section-lead {
   color: var(--muted);
@@ -194,25 +338,29 @@ img {
 }
 .btn--primary {
   background: var(--accent-grad);
-  color: #fff;
-  box-shadow: 0 10px 24px -10px var(--brand);
+  color: var(--on-accent);
+  /* One shared glow (defined once in :root) — identical across every theme. */
+  box-shadow: var(--btn-glow);
 }
 .btn--primary:hover {
-  box-shadow: 0 16px 30px -12px var(--brand);
+  box-shadow: var(--btn-glow-hover);
 }
 .btn--ghost {
+  /* Clear, visible secondary in every theme: an ink-tinted border keeps the outline
+     legible even on the faint light --border. */
   background: transparent;
-  border-color: var(--border);
+  border-color: color-mix(in srgb, var(--ink) 35%, transparent);
   color: var(--ink);
 }
 .btn--ghost:hover {
-  background: var(--bg-alt);
+  background: color-mix(in srgb, var(--ink) 10%, transparent);
+  border-color: var(--brand);
 }
 .btn--light {
-  background: #fff;
+  background: var(--btn-light-bg);
   /* Fixed dark text: this button is always on a white background, so it must NOT
      use var(--ink) (which becomes off-white in dark mode -> invisible white-on-white). */
-  color: #1c1a17;
+  color: var(--btn-light-fg);
 }
 
 /* Grids */

@@ -23,10 +23,10 @@
 
     <button
       class="nav__toggle"
-      [class.is-dark]="dark()"
-      (click)="toggleTheme()"
-      [attr.aria-label]="dark() ? 'Zum hellen Design wechseln' : 'Zum dunklen Design wechseln'"
-      [attr.aria-pressed]="dark()"
+      [class.is-dark]="isDark()"
+      [hidden]="!showToggle"
+      (click)="cycleTheme()"
+      [attr.aria-label]="themeLabel()"
     >
       <svg
         class="nav__toggle-icon nav__toggle-icon--moon"

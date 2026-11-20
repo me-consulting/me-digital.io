@@ -20,7 +20,7 @@
     <div class="footer__col">
       <h4>Leistungen</h4>
       @for (s of services; track s.id) {
-        <a routerLink="/services">{{ s.title }}</a>
+        <a [routerLink]="['/services']" [fragment]="s.id">{{ s.title }}</a>
       }
     </div>
 

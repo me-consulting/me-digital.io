@@ -23,6 +23,8 @@
 }
 
 .service {
+  /* Offset fragment scrolls past the sticky 68px nav so headings aren't hidden. */
+  scroll-margin-top: 88px;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius);
@@ -69,18 +71,18 @@
   gap: 1.5rem;
   flex-wrap: wrap;
   background: var(--accent-grad);
-  color: #fff;
+  color: var(--on-accent);
   border-radius: var(--radius);
   padding: 2.5rem;
   box-shadow: var(--shadow-lg);
 }
 .cta-band h2 {
   margin: 0 0 0.35rem;
-  color: #fff;
+  color: var(--on-accent);
 }
 .cta-band p {
   margin: 0;
-  color: rgba(255, 255, 255, 0.9);
+  color: var(--on-accent-soft);
 }
 
 @media (max-width: 560px) {

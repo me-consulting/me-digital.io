@@ -43,7 +43,7 @@
   height: 30px;
   border-radius: 8px;
   background: var(--accent-grad);
-  color: #fff;
+  color: var(--on-accent);
   font-size: 0.9rem;
 }
 
@@ -157,12 +157,14 @@
   width: 20px;
   height: 20px;
 }
+/* Theme toggle icons: exactly one shows. Default (a "day" variant) shows the
+   moon; .is-dark (a "night" variant, e.g. gta) reveals the sun. */
 .nav__toggle-icon--sun {
+  display: none;
+}
+.nav__toggle.is-dark .nav__toggle-icon--moon {
   display: none;
 }
 .nav__toggle.is-dark .nav__toggle-icon--sun {
   display: block;
-}
-.nav__toggle.is-dark .nav__toggle-icon--moon {
-  display: none;
 }

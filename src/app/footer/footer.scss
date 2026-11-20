@@ -1,7 +1,7 @@
 :host {
   display: block;
   background: var(--dark);
-  color: #cbd5e1;
+  color: var(--on-dark-body);
   padding: 3.5rem 0 1.5rem;
   margin-top: 4rem;
 }
@@ -18,7 +18,7 @@
   gap: 0.5rem;
   font-weight: 800;
   font-size: 1.15rem;
-  color: #fff;
+  color: var(--on-dark);
   text-decoration: none;
 }
 .footer__mark {
@@ -28,17 +28,17 @@
   height: 28px;
   border-radius: 8px;
   background: var(--accent-grad);
-  color: #fff;
+  color: var(--on-accent);
   font-size: 0.85rem;
 }
 .footer__brand p {
-  color: #94a3b8;
+  color: var(--on-dark-subtle);
   margin: 0.6rem 0 0;
   max-width: 32ch;
 }
 
 .footer__col h4 {
-  color: #fff;
+  color: var(--on-dark);
   font-size: 0.85rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -46,13 +46,13 @@
 }
 .footer__col a {
   display: block;
-  color: #cbd5e1;
+  color: var(--on-dark-body);
   text-decoration: none;
   padding: 0.25rem 0;
   transition: color 0.15s ease;
 }
 .footer__col a:hover {
-  color: #fff;
+  color: var(--on-dark);
   text-decoration: none;
 }
 
@@ -62,9 +62,9 @@
   align-items: center;
   margin-top: 3rem;
   padding-top: 1.5rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid var(--on-dark-border);
   font-size: 0.85rem;
-  color: #94a3b8;
+  color: var(--on-dark-subtle);
 }
 
 @media (max-width: 820px) {

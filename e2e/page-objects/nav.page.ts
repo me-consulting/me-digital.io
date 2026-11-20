@@ -26,7 +26,7 @@ export class Nav {
     this.host = page.locator('app-nav');
     this.links = page.getByRole('navigation', { name: 'Hauptnavigation' });
     this.themeToggle = page.getByRole('button', {
-      name: /hellen Design|dunklen Design/i,
+      name: /Design wechseln/i,
     });
   }
 
