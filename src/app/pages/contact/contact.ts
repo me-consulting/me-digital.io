@@ -1,8 +1,10 @@
 import { Component, signal } from '@angular/core';
 import { site } from '../../content';
+import { Reveal } from '../../reveal/reveal';
 
 @Component({
   selector: 'app-contact',
+  imports: [Reveal],
   // Kein FormsModule — das Formular läuft über Signals ([value]/(input)).
   templateUrl: './contact.html',
   styleUrl: './contact.scss',
