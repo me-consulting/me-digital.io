@@ -59,21 +59,3 @@
   </div>
 
 </section>
-
-<!-- ============ HÄUFIGE FRAGEN ============ -->
-<section class="section section--alt" reveal>
-  <div class="container">
-    <div class="section-head">
-      <span class="eyebrow">FAQ</span>
-      <h2 class="section-title">Häufige Fragen</h2>
-    </div>
-    <div class="faq-list">
-      @for (f of site.faqs; track f.q) {
-        <details class="faq">
-          <summary>{{ f.q }}</summary>
-          <p>{{ f.a }}</p>
-        </details>
-      }
-    </div>
-  </div>
-</section>
