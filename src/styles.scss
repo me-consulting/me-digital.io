@@ -231,8 +231,8 @@
      (32%/42% of --brand, set in :root) reads as a loud magenta halo on a pale
      lavender surface, so gta-light overrides it to a subtle brand-tinted shadow.
      Dark themes keep the loud neon glow inherited from :root. */
-  --btn-glow: 0 8px 20px -12px color-mix(in srgb, var(--brand) 15%, transparent);
-  --btn-glow-hover: 0 10px 24px -12px color-mix(in srgb, var(--brand) 24%, transparent);
+  --btn-glow: 0 6px 16px -12px color-mix(in srgb, var(--brand) 6%, transparent);
+  --btn-glow-hover: 0 8px 20px -12px color-mix(in srgb, var(--brand) 10%, transparent);
 }
 
 * {
