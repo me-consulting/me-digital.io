@@ -226,6 +226,13 @@
     radial-gradient(120% 85% at 80% 0%, color-mix(in srgb, var(--brand) 15%, transparent), transparent),
     radial-gradient(90% 70% at 12% 10%, color-mix(in srgb, var(--brand-2) 11%, transparent), transparent);
   --heading-glow: none; /* light base: skip the neon text-glow, it would muddy */
+
+  /* Light base: calm the primary-button glow. The neon family's shared glow
+     (32%/42% of --brand, set in :root) reads as a loud magenta halo on a pale
+     lavender surface, so gta-light overrides it to a subtle brand-tinted shadow.
+     Dark themes keep the loud neon glow inherited from :root. */
+  --btn-glow: 0 8px 20px -12px color-mix(in srgb, var(--brand) 15%, transparent);
+  --btn-glow-hover: 0 10px 24px -12px color-mix(in srgb, var(--brand) 24%, transparent);
 }
 
 * {
