@@ -125,9 +125,28 @@
   color: var(--on-dark-soft);
 }
 
-/* ---------- Process ---------- */
+/* ---------- Process (connected timeline) ---------- */
+/* Four numbered step cards; on wide screens a gradient connector runs behind
+   them (visible in the gaps) so it reads as a timeline, not four plain boxes. */
+.process {
+  position: relative;
+}
+@media (min-width: 821px) {
+  .process::before {
+    content: '';
+    position: absolute;
+    top: calc(1.5rem + 22px); /* centre of the 44px step node */
+    left: 12.5%;
+    right: 12.5%;
+    height: 2px;
+    background: linear-gradient(90deg, var(--brand), var(--brand-2));
+    opacity: 0.4;
+    z-index: 0;
+  }
+}
 .process__step {
   position: relative;
+  z-index: 1;
   padding: 1.5rem;
   background: var(--surface);
   border: 1px solid var(--border);
@@ -135,10 +154,17 @@
   box-shadow: var(--shadow);
 }
 .process__num {
-  font-size: 0.85rem;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+  background: var(--accent-grad);
+  color: var(--on-accent);
+  font-size: 0.95rem;
   font-weight: 800;
-  color: var(--brand);
-  letter-spacing: 0.1em;
+  box-shadow: 0 6px 16px -8px color-mix(in srgb, var(--brand) 55%, transparent);
 }
 
 /* ---------- Testimonials ---------- */
