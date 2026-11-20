@@ -167,6 +167,46 @@
   box-shadow: 0 6px 16px -8px color-mix(in srgb, var(--brand) 55%, transparent);
 }
 
+/* ---------- Tech-stack strip ---------- */
+/* A slim, centred "we work with" band — visually distinct from a full section:
+   reduced padding + a centred row of chips. Token-driven; hover lifts + brand
+   border. Content lives in site.techStack (content.ts), honestly derived from
+   the services + FAQ. */
+.techstrip-band {
+  padding: clamp(1.75rem, 3vw, 2.75rem) 0;
+}
+.techstrip-band__eyebrow {
+  display: block;
+  text-align: center;
+  margin-bottom: 1.25rem;
+}
+.techstrip {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.6rem 0.75rem;
+  max-width: 1040px;
+  margin: 0 auto;
+}
+.techchip {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 0.95rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--ink);
+  font-size: 0.95rem;
+  font-weight: 600;
+  box-shadow: var(--shadow);
+  transition: transform 0.15s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+.techchip:hover {
+  transform: translateY(-2px);
+  border-color: var(--brand);
+  box-shadow: var(--shadow-lg);
+}
+
 /* ---------- Testimonials ---------- */
 .quote {
   margin: 0;

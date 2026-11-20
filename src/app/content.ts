@@ -152,6 +152,23 @@ export const site = {
     },
   ] as ProcessStep[],
 
+  // ── Tech-Stack (ehrlich: aus Leistungen + FAQ abgeleitet, keine Kundendaten) ──
+  // Ein schmales "Wir arbeiten mit …"-Band. Bewusst nur bewährte, real genutzte
+  // Werkzeuge — kein Buzzword-Salat, keine Logos (kein Drittanbieter-Asset).
+  techStack: {
+    eyebrow: 'Wir arbeiten mit',
+    items: [
+      'Angular',
+      'Vue.js',
+      'Java',
+      'Kotlin',
+      'REST / GraphQL',
+      'AWS',
+      'CI / CD',
+      'Claude / LLM',
+    ],
+  },
+
   // ── Referenzen ──────────────────────────────────────────────────────────────
   // Leer lassen -> der Abschnitt auf der Startseite wird ausgeblendet.
   // Sobald es echte Kundenstimmen gibt, hier einfügen, z. B.:
