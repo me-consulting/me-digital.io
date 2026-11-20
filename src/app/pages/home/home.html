@@ -16,7 +16,7 @@
     <div class="stats">
       @for (s of site.stats; track s.label) {
         <div class="stat">
-          <span class="stat__value">{{ s.value }}</span>
+          <span class="stat__value" [countUp]="s.value">{{ s.value }}</span>
           <span class="stat__label">{{ s.label }}</span>
         </div>
       }
