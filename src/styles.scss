@@ -493,3 +493,40 @@ img {
   vertical-align: middle;
   margin-left: 0.45rem;
 }
+
+/* ---------- FAQ (reused on home / about / contact) ---------- */
+/* A centred, readable column of native <details> accordions. Moved here from
+   contact.scss so every page shares one style; content lives in site.faqs. */
+.faq-list {
+  max-width: 760px;
+  margin: 0 auto;
+}
+.faq {
+  border-bottom: 1px solid var(--border);
+  padding: 0.15rem 0;
+}
+.faq:last-child {
+  border-bottom: none;
+}
+.faq summary {
+  cursor: pointer;
+  font-weight: 600;
+  padding: 0.5rem 0;
+  list-style: none;
+}
+.faq summary::-webkit-details-marker {
+  display: none;
+}
+.faq summary::after {
+  content: '+';
+  float: right;
+  color: var(--brand);
+  font-weight: 700;
+}
+.faq[open] summary::after {
+  content: '–';
+}
+.faq p {
+  color: var(--muted);
+  margin: 0 0 0.75rem;
+}
