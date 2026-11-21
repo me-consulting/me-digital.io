@@ -181,7 +181,7 @@
 :root[data-theme='gta-light'] {
   --brand: #3f3f9e;        /* indigo — cool royal blue: clearly different + professional */
   --brand-2: #5a5fd0;      /* periwinkle-blue */
-  --accent-grad: linear-gradient(135deg, #1e4fd6, #2a7fff 35%, #35d0e6 68%, #7b4dff);
+  --accent-grad: linear-gradient(135deg, #2a5cff, #ff2d9e 55%, #b026ff);
 
   --bg: #f6f1fb;           /* pale lavender-white */
   --bg-alt: #ece4f7;       /* section band */
@@ -351,6 +351,12 @@ img {
 :root[data-theme='gta-light'] .btn--primary {
   position: relative;
   overflow: hidden;
+  /* GTA neon glow: hot pink + violet halo (the neon is the glow, the fill stays
+     saturated-but-legible for white text on the light base). */
+  box-shadow: 0 0 24px rgba(255, 45, 158, 0.5), 0 0 48px rgba(123, 47, 255, 0.4);
+}
+:root[data-theme='gta-light'] .btn--primary:hover {
+  box-shadow: 0 0 30px rgba(255, 45, 158, 0.6), 0 0 60px rgba(123, 47, 255, 0.5);
 }
 :root[data-theme='gta-light'] .btn--primary::after {
   content: "";
