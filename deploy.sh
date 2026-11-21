@@ -40,4 +40,11 @@ done
 export VSCODE_GIT_IPC_HANDLE="${LIVE:-/dev/null}"
 git pull --rebase origin develop
 git push origin develop
+# GitHub Pages serves the 'main' branch (source = main /docs), but this build
+# lands on develop. Fast-forward main to the develop tip so the new build is
+# actually published. A plain (no --force) push is a fast-forward only: if main
+# ever diverges from develop it refuses instead of clobbering, so it's safe.
+git push origin develop:main \
+  && echo ">> fast-forwarded main (Pages source) — new build will publish in ~1-2 min." \
+  || echo ">> WARNING: main was NOT fast-forwarded (it diverged from develop?) — publish may not update; check main."
 echo ">> pushed develop. GitHub Pages re-publishes in ~1-2 min."
