@@ -179,9 +179,9 @@
    Same neon palette on a pale lavender base. Selected by
    <html data-theme="gta-light">. Flourish tokens carry lighter opacities. */
 :root[data-theme='gta-light'] {
-  --brand: #e11d74;        /* strong magenta (readable on light) */
-  --brand-2: #f26a1b;      /* sunset orange */
-  --accent-grad: linear-gradient(135deg, #e11d74, #f26a1b 55%, #7b2ff7);
+  --brand: #c13d6b;        /* deep rose — calmer dusk, still readable on light */
+  --brand-2: #d16a34;      /* burnt amber */
+  --accent-grad: linear-gradient(135deg, #c13d6b, #d16a34 55%, #6a4fb0);
 
   --bg: #f6f1fb;           /* pale lavender-white */
   --bg-alt: #ece4f7;       /* section band */
@@ -201,8 +201,8 @@
   --on-dark-border: rgba(255, 255, 255, 0.12);
   --on-dark-chip: rgba(255, 255, 255, 0.16);
 
-  --shadow: 0 10px 30px -12px rgba(123, 47, 247, 0.18);
-  --shadow-lg: 0 24px 60px -20px rgba(225, 29, 116, 0.28);
+  --shadow: 0 10px 30px -12px rgba(106, 79, 176, 0.18);
+  --shadow-lg: 0 24px 60px -20px rgba(193, 61, 107, 0.28);
 
   --neon: #00b894;
   /* Very faint on the light base — texture, not a Tron floor. Alpha in --grid-line:
