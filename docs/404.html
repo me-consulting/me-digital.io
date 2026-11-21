@@ -6,24 +6,43 @@
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="ME Digital ist eine IT-Beratung mit Fokus auf moderne Frontends und KI — full-stack für wachsende Unternehmen. Kontakt aufnehmen.">
-  <meta name="theme-color" content="#0b1020">
+  <meta name="theme-color" content="#0a0612">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <!-- Theme: set data-theme before first paint (no flash). Choice persists; falls
-       back to the OS colour scheme on first visit. -->
+  <!-- Theme: set data-theme before first paint (no flash).
+       Priority: 1) ?theme= query param — reach ANY theme incl. hidden ones,
+       e.g. ?theme=dark or ?theme=light (non-destructive: doesn't overwrite the
+       saved choice), 2) the saved toggle choice in localStorage, 3) the OS colour
+       scheme mapped to the current GTA family (dark -> gta, light -> gta-light). -->
   <script>
     (function () {
       try {
-        var t = localStorage.getItem('theme');
-        if (t !== 'light' && t !== 'dark') {
-          t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        var VALID = { light: 1, dark: 1, gta: 1, 'gta-light': 1 };
+        // theme-color for the mobile browser chrome, per theme.
+        var CHROME = { light: '#f7f3ec', dark: '#16130e', gta: '#0a0612', 'gta-light': '#f6f1fb' };
+        var t = null;
+        // 1) URL query param wins — the way to reach hidden themes.
+        try {
+          var q = new URLSearchParams(window.location.search).get('theme');
+          if (VALID[q]) t = q;
+        } catch (e) {}
+        // 2) then the user's saved toggle choice.
+        if (!t) {
+          var s = localStorage.getItem('theme');
+          if (VALID[s]) t = s;
+        }
+        // 3) then the OS colour scheme, mapped to the current (GTA) theme family.
+        if (!t) {
+          t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'gta' : 'gta-light';
         }
         document.documentElement.setAttribute('data-theme', t);
+        var meta = document.querySelector('meta[name="theme-color"]');
+        if (meta && CHROME[t]) meta.setAttribute('content', CHROME[t]);
       } catch (e) {}
     })();
   </script>
-<style>:root{--brand:#b8732e;--brand-2:#d98e3d;--accent-grad:linear-gradient(135deg, var(--brand), var(--brand-2));--bg:#f7f3ec;--bg-alt:#f1e8da;--surface:#ffffff;--ink:#1c1a17;--muted:#6b6157;--border:#e8dfd1;--dark:#171410;--font:"Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;--font-display:"Space Grotesk", "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;--radius:16px;--radius-sm:10px;--shadow:0 10px 30px -12px rgba(40, 30, 15, .14);--shadow-lg:0 24px 60px -20px rgba(40, 30, 15, .24);--maxw:1160px;--gap:1.5rem}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:var(--font);color:var(--ink);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased}</style><link rel="stylesheet" href="styles-CFZTHDE7.css" media="print" data-beasties-media="all"><noscript><link rel="stylesheet" href="styles-CFZTHDE7.css"></noscript></head>
+<style>:root{--brand:#b8732e;--brand-2:#d98e3d;--accent-grad:linear-gradient(135deg, var(--brand), var(--brand-2));--bg:#f7f3ec;--bg-alt:#f1e8da;--surface:#ffffff;--ink:#1c1a17;--muted:#6b6157;--border:#e8dfd1;--dark:#171410;--on-accent:#ffffff;--on-accent-soft:rgba(255, 255, 255, .9);--on-dark:#ffffff;--on-dark-body:#cbd5e1;--on-dark-subtle:#94a3b8;--on-dark-soft:rgba(255, 255, 255, .85);--on-dark-border:rgba(255, 255, 255, .08);--on-dark-chip:rgba(255, 255, 255, .14);--btn-light-bg:#ffffff;--btn-light-fg:#1c1a17;--danger:#e5484d;--font:"Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;--font-display:"Space Grotesk", "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;--radius:16px;--radius-sm:10px;--shadow:0 10px 30px -12px rgba(40, 30, 15, .14);--shadow-lg:0 24px 60px -20px rgba(40, 30, 15, .24);--btn-glow:0 12px 28px -12px color-mix(in srgb, var(--brand) 32%, transparent);--btn-glow-hover:0 16px 34px -12px color-mix(in srgb, var(--brand) 42%, transparent);--maxw:1160px;--gap:1.5rem}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:var(--font);color:var(--ink);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased}</style><link rel="stylesheet" href="styles-XKQAJ32Y.css" media="print" data-beasties-media="all"><noscript><link rel="stylesheet" href="styles-XKQAJ32Y.css"></noscript></head>
 <body>
   <app-root></app-root>
-<script src="main-PDWG3HKT.js" type="module"></script><script>document.querySelectorAll('link[data-beasties-media]').forEach(function(l){l.media=l.getAttribute('data-beasties-media');l.removeAttribute('data-beasties-media')})</script></body>
+<script src="main-O6RXRUAW.js" type="module"></script><script>document.querySelectorAll('link[data-beasties-media]').forEach(function(l){l.media=l.getAttribute('data-beasties-media');l.removeAttribute('data-beasties-media')})</script></body>
 </html>
