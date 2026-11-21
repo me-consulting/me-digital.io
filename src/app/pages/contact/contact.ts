@@ -11,7 +11,6 @@ import { Reveal } from '../../reveal/reveal';
 })
 export class Contact {
   readonly site = site;
-  readonly faqs = site.faqs;
 
   // Signal-Felder (kein ngModel).
   readonly name = signal('');
