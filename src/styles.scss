@@ -179,9 +179,9 @@
    Same neon palette on a pale lavender base. Selected by
    <html data-theme="gta-light">. Flourish tokens carry lighter opacities. */
 :root[data-theme='gta-light'] {
-  --brand: #c13d6b;        /* deep rose — calmer dusk, still readable on light */
-  --brand-2: #d16a34;      /* burnt amber */
-  --accent-grad: linear-gradient(135deg, #c13d6b, #d16a34 55%, #6a4fb0);
+  --brand: #3f3f9e;        /* indigo — cool royal blue: clearly different + professional */
+  --brand-2: #5a5fd0;      /* periwinkle-blue */
+  --accent-grad: linear-gradient(135deg, #3f3f9e, #5a5fd0 55%, #8a5cc8);
 
   --bg: #f6f1fb;           /* pale lavender-white */
   --bg-alt: #ece4f7;       /* section band */
@@ -191,9 +191,9 @@
   --border: #e6dcf2;
   --dark: #160a30;         /* footer / CTA card (deep violet, even in light) */
 
-  /* Bright gradient → dark text for legibility, same approach as the night variant */
-  --on-accent: #1a0730;
-  --on-accent-soft: rgba(26, 7, 48, 0.85);
+  /* Dark indigo gradient → white text for legibility. */
+  --on-accent: #ffffff;
+  --on-accent-soft: rgba(255, 255, 255, 0.9);
   --on-dark: #ffffff;
   --on-dark-body: #ece1fb;
   --on-dark-subtle: #b7a8e0;
@@ -201,8 +201,8 @@
   --on-dark-border: rgba(255, 255, 255, 0.12);
   --on-dark-chip: rgba(255, 255, 255, 0.16);
 
-  --shadow: 0 10px 30px -12px rgba(106, 79, 176, 0.18);
-  --shadow-lg: 0 24px 60px -20px rgba(193, 61, 107, 0.28);
+  --shadow: 0 10px 30px -12px rgba(63, 63, 158, 0.18);
+  --shadow-lg: 0 24px 60px -20px rgba(90, 95, 208, 0.28);
 
   --neon: #00b894;
   /* Very faint on the light base — texture, not a Tron floor. Alpha in --grid-line:
