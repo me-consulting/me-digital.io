@@ -181,7 +181,7 @@
 :root[data-theme='gta-light'] {
   --brand: #3f3f9e;        /* indigo — cool royal blue: clearly different + professional */
   --brand-2: #5a5fd0;      /* periwinkle-blue */
-  --accent-grad: linear-gradient(135deg, #3f3f9e, #5a5fd0 55%, #8a5cc8);
+  --accent-grad: linear-gradient(135deg, #1e4fd6, #2a7fff 35%, #35d0e6 68%, #7b4dff);
 
   --bg: #f6f1fb;           /* pale lavender-white */
   --bg-alt: #ece4f7;       /* section band */
@@ -344,6 +344,20 @@ img {
 }
 .btn--primary:hover {
   box-shadow: var(--btn-glow-hover);
+}
+
+/* Light theme: a glossy sheen over the primary CTA so the rich gradient reads
+   as premium, not flat. Scoped to gta-light so dark themes keep their look. */
+:root[data-theme='gta-light'] .btn--primary {
+  position: relative;
+  overflow: hidden;
+}
+:root[data-theme='gta-light'] .btn--primary::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.30), rgba(255, 255, 255, 0) 48%);
+  pointer-events: none;
 }
 .btn--ghost {
   /* Clear, visible secondary in every theme: an ink-tinted border keeps the outline
